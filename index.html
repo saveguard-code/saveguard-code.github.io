@@ -340,7 +340,7 @@
             <div id="pingResultBox" class="result-box" style="display: none; text-align: center;">Awaiting test...</div>
         </div>
 
-        <!-- بوت الذكاء الاصطناعي الذكي (Gemini AI Ultimate Engine) -->
+        <!-- بوت الذكاء الاصطناعي الحقيقي (Gemini AI API) -->
         <div class="card" style="border-color: #38bdf8;">
             <h3 id="aiTitle" style="color: #38bdf8;"><i class="fa-solid fa-brain"></i> 0. Gemini AI Pro Assistant</h3>
             <p id="aiDesc">Ask any question on any topic and get expert live answers instantly:</p>
@@ -698,8 +698,8 @@
 
         function handleAiEnter(event) { if (event.key === 'Enter') askGeminiInSite(); }
 
-        // --- محرك الذكاء الاصطناعي الاحترافي المتقدم (Gemini Pro Ultimate Engine) ---
-        function askGeminiInSite() {
+        // --- محرك Gemini AI الحقيقي (Real Gemini API) ---
+        async function askGeminiInSite() {
             const queryInput = document.getElementById('aiQueryInput');
             const resultBox = document.getElementById('aiResultBox');
             const query = queryInput.value.trim();
@@ -713,42 +713,43 @@
 
             resultBox.style.display = 'block';
             resultBox.className = 'result-box';
-            resultBox.innerHTML = '🤖 جاري معالجة الطلب وصياغة الإجابة الاحترافية...';
+            resultBox.innerHTML = '🤖 جاري الاتصال بنظام Gemini AI الذكي وتحليل طلبك...';
 
-            setTimeout(() => {
-                const q = query.toLowerCase();
-                let answer = "";
+            // حط هنا الـ API Key الحقيقي ديالك لي غاتجبدو من Google AI Studio
+            const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY"; 
 
-                // التحقق من طلبات الترجمة أو النصوص بلغات أجنبية (مثل الألمانية، الفرنسية، الإنجليزية...)
-                if (q.includes('المانية') || q.includes('ألمانية') || q.includes('german') || q.includes('deutsch')) {
-                    answer = "🇩🇪 **رسالة تحفيزية بالألمانية (Motivational Message):**\n\n*\"Gib niemals auf, denn große Dinge brauchen Zeit. Jeder Tag ist eine neue Chance, deine Träume zu verwirklichen!\"*\n\n*(الترجمة: لا تستسلم أبداً، فالأشياء العظيمة تحتاج إلى وقث. كل يوم هو فرصة جديدة لتحقيق أحلامك!)*";
-                } 
-                else if (q.includes('فرنسية') || q.includes('french') || q.includes('français')) {
-                    answer = "🇫🇷 **رسالة تحفيزية بالفرنسية:**\n\n*\"Crois en toi et en tout ce que tu es. Sache qu'il y a quelque chose à l'intérieur de toi qui est plus grand que n'importe quel obstacle.\"*\n\n*(آمن بنفسك وبعظمتك، واعلم أن بداخلك قوة أكبر من أي عقبة).*";
-                }
-                else if (q.includes('سلام') || q.includes('salam') || q.includes('مرحبا') || q.includes('hello') || q.includes('hi')) {
-                    answer = "أهلاً بك يا صديقي! أنا مساعد Gemini Pro الذكي بمنصة SaveGuard. جاهز لإبهارك والإجابة على أي سؤال تقني، برمجي، علمي، أو ثقافي تفضله. تفضل بطرح سؤالك!";
-                } 
-                else if (q.includes('شكون') || q.includes('من انت') || q.includes('who are you')) {
-                    answer = "أنا نموذج ذكاء اصطناعي متطور مدمج في منصة **SaveGuard**، مصمم لمساعدة المستخدمين، الإجابة على الاستفسارات المعقدة، تقديم الحلول البرمجية، وتحليل البيانات بسرعة فائقة.";
-                } 
-                else if (q.includes('python') || q.includes('بايتون') || q.includes('برمجة')) {
-                    answer = "💻 **استشارة برمجية (Python):**\nلغة بايثون هي الخيار الأول للذكاء الاصطناعي وتحليل البيانات وتطوير الويب السريع. مثال بسيط لكتابة دالة ترحيبية:\n```python\ndef saveguard_welcome(name):\n    return f'Welcome to SaveGuard, {name}!'\n```";
-                } 
-                else if (q.includes('javascript') || q.includes('js') || q.includes('جافاسكريبت')) {
-                    answer = "⚡ **استشارة برمجية (JavaScript):**\nجافاسكريبت هي عمود الويب الفقري. لتنفيذ تنبيه تفاعلي مثلاً:\n```javascript\nalert('Welcome to Elite Security Hub!');\n```";
-                }
-                else if (q.includes('امان') || q.includes('حماية') || q.includes('security') || q.includes('هاكر')) {
-                    answer = "🔒 **نصيحة أمنية من SaveGuard:**\nللحفاظ على أمان حساباتك، تجنب استخدام كلمات مرور مكررة، قم بتفعيل المصادقة الثنائية (2FA)، ولا تقم أبداً بالنقر على الروابط مجهولة المصدر.";
-                }
-                else {
-                    // نظام الذكاء العام لأي سؤال مفتوح
-                    answer = `💡 **تحليل الذكاء الاصطناعي لسؤالك:**\nلقد قمت بتحليل استفسارك بدقة: *("${query}")*\n\nبناءً على قاعدة المعرفة الشاملة الخاصة بي، هذا الموضوع يتطلب التركيز على الجوانب العملية والتنظيمية السليمة. إذا كنت تحتاج إلى تفاصيل دقيقة أو كود برمجي أو شرح معمق أكثر حول هذا العنوان، اطرحه بشكل مباشر وسأقدم لك دليلاً شاملاً فوراً!`;
-                }
+            if (GEMINI_API_KEY === "YOUR_GEMINI_API_KEY") {
+                resultBox.className = 'result-box result-danger';
+                resultBox.innerHTML = '⚠️ تنبيه للمطور: يرجى استبدال "YOUR_GEMINI_API_KEY" بمفتاح API الخاص بك من Google AI Studio لكي يعمل الذكاء الاصطناعي الحقيقي.';
+                return;
+            }
 
-                resultBox.className = 'result-box result-safe';
-                resultBox.innerHTML = "<b>🤖 Gemini Pro AI:</b><br>" + answer.replace(/\n/g, "<br>");
-            }, 350);
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{ text: query }]
+                        }]
+                    })
+                });
+
+                const data = await response.json();
+                
+                if (data.candidates && data.candidates[0].content.parts[0].text) {
+                    let aiReply = data.candidates[0].content.parts[0].text;
+                    resultBox.className = 'result-box result-safe';
+                    resultBox.innerHTML = "<b>🤖 Gemini Pro AI:</b><br>" + aiReply.replace(/\n/g, "<br>");
+                } else {
+                    throw new Error("Invalid response format");
+                }
+            } catch (error) {
+                resultBox.className = 'result-box result-danger';
+                resultBox.innerHTML = '❌ عذراً، حدث خطأ أثناء الاتصال بخادم الذكاء الاصطناعي. تأكد من صحة مفتاح الـ API.';
+            }
         }
 
         function fetchAndDownloadVideo() {
