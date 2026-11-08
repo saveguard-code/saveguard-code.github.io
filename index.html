@@ -300,6 +300,24 @@
             font-size: 11px;
             font-family: 'Share Tech Mono', monospace;
         }
+
+        .legal-links {
+            margin-top: 10px;
+            font-size: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .legal-links a {
+            color: var(--primary-glow);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .legal-links a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -329,7 +347,7 @@
         <h1 class="main-title">&gt; SAVE_GUARD.SYS</h1>
         <div class="subtitle" id="subTitleText">Digital Security Intelligence & Media Hub</div>
 
-        <!-- قسم مقالات إرشادية وتثقيفية لقبول أدسنس (محتوى تعديلي غني) -->
+        <!-- قسم مقالات إرشادية وتثقيفية لقبول أدسنس -->
         <div class="card article-section" style="border-color: #38bdf8;">
             <h3 id="artMainTitle"><i class="fa-solid fa-book-open"></i> Comprehensive Cyber Security & Digital Guide</h3>
             
@@ -421,6 +439,10 @@
                 <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
             </div>
             <footer>&copy; 2026 SAVE_GUARD.SYS // ALL RIGHTS RESERVED.</footer>
+            <div class="legal-links">
+                <a href="privacy.html" id="privacyLink">Privacy Policy</a> | 
+                <a href="contact.html" id="contactLink">Contact Us</a>
+            </div>
         </div>
     </div>
 
@@ -452,7 +474,7 @@
         }
         setInterval(drawMatrix, 30);
 
-        // --- نظام ترجمة متكامل يشمل المقالات ---
+        // --- نظام ترجمة متكامل ---
         const translations = {
             en: {
                 topStore: "Store 🛒",
@@ -487,7 +509,9 @@
                 genBtn: "Generate Token",
                 storeTitle: "SaveGuard Official Apparel Store",
                 storeDesc: "Get high-tech gear, hoodies, and exclusive security merchandise.",
-                storeBtn: "Visit Store 🚀"
+                storeBtn: "Visit Store 🚀",
+                privacyText: "Privacy Policy",
+                contactText: "Contact Us"
             },
             ar: {
                 topStore: "المتجر 🛒",
@@ -522,7 +546,9 @@
                 genBtn: "توليد رمز آمن",
                 storeTitle: "متجر ملابس SaveGuard الرسمي",
                 storeDesc: "احصل على معدات تقنية عالية الجودة، هوديز، ومرشانديز حصرية.",
-                storeBtn: "زيارة المتجر 🚀"
+                storeBtn: "زيارة المتجر 🚀",
+                privacyText: "سياسة الخصوصية",
+                contactText: "اتصل بنا"
             },
             fr: {
                 topStore: "Boutique 🛒",
@@ -557,7 +583,9 @@
                 genBtn: "Générer un jeton",
                 storeTitle: "Boutique Officielle SaveGuard",
                 storeDesc: "Obtenez des équipements high-tech, des sweats à capuche et des articles exclusifs.",
-                storeBtn: "Visiter la boutique 🚀"
+                storeBtn: "Visiter la boutique 🚀",
+                privacyText: "Politique de confidentialité",
+                contactText: "Contactez-nous"
             },
             nl: {
                 topStore: "Winkel 🛒",
@@ -592,7 +620,9 @@
                 genBtn: "Token genereren",
                 storeTitle: "SaveGuard Officiële Kledingwinkel",
                 storeDesc: "Ontvang hightechuitrusting, hoodies en exclusieve beveiligingsmerchandise.",
-                storeBtn: "Bezoek winkel 🚀"
+                storeBtn: "Bezoek winkel 🚀",
+                privacyText: "Privacybeleid",
+                contactText: "Neem contact op"
             },
             es: {
                 topStore: "Tienda 🛒",
@@ -627,7 +657,9 @@
                 genBtn: "Generar token",
                 storeTitle: "Tienda Oficial de Ropa SaveGuard",
                 storeDesc: "Obtenga equipo de alta tecnología, sudaderas y mercancía de seguridad exclusiva.",
-                storeBtn: "Visitar tienda 🚀"
+                storeBtn: "Visitar tienda 🚀",
+                privacyText: "Política de Privacidad",
+                contactText: "Contáctanos"
             },
             de: {
                 topStore: "Shop 🛒",
@@ -662,7 +694,9 @@
                 genBtn: "Token generieren",
                 storeTitle: "SaveGuard Offizieller Bekleidungsshop",
                 storeDesc: "Holen Sie sich High-Tech-Ausrüstung, Hoodies und exklusive Sicherheitsartikel.",
-                storeBtn: "Shop besuchen 🚀"
+                storeBtn: "Shop besuchen 🚀",
+                privacyText: "Datenschutz",
+                contactText: "Kontakt"
             }
         };
 
@@ -710,6 +744,8 @@
             document.getElementById('storeTitle').innerText = t.storeTitle;
             document.getElementById('storeDesc').innerText = t.storeDesc;
             document.getElementById('storeBtnText').innerText = t.storeBtn;
+            document.getElementById('privacyLink').innerText = t.privacyText;
+            document.getElementById('contactLink').innerText = t.contactText;
         }
 
         function checkNetworkPing() {
