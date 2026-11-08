@@ -7,10 +7,11 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">SaveGuard & Media | Elite Security Hub</title>
+    <title id="pageTitle">SaveGuard & Media | Elite Security Hub & Digital Guide</title>
 
     <!-- رأس الأمان متوافق مع أدسنس -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="description" content="SaveGuard is your ultimate digital security intelligence hub, providing professional tools, network monitors, video stream extractors, and cybersecurity guides.">
 
     <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -30,10 +31,6 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Inter', sans-serif;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
         }
 
         body {
@@ -126,7 +123,7 @@
 
         .container {
             width: 100%;
-            max-width: 520px;
+            max-width: 620px;
             padding: 20px;
             box-sizing: border-box;
             display: flex;
@@ -177,10 +174,10 @@
             font-family: 'Share Tech Mono', monospace;
         }
 
-        .card p {
+        .card p, .article-content p {
             font-size: 13px;
             color: #cbd5e1;
-            line-height: 1.5;
+            line-height: 1.6;
             margin-bottom: 10px;
         }
 
@@ -199,9 +196,6 @@
             color: #fff;
             font-size: 13px;
             outline: none;
-            -webkit-user-select: text;
-            -moz-user-select: text;
-            -ms-user-select: text;
             user-select: text;
         }
 
@@ -251,8 +245,6 @@
             margin: 12px 0;
             border: 1px dashed #334155;
             word-break: break-word;
-            font-family: 'Inter', sans-serif;
-            -webkit-user-select: text;
             user-select: text;
             line-height: 1.6;
         }
@@ -267,6 +259,13 @@
 
         .result-safe { color: #00ffcc; border-color: #00ffcc; background: rgba(0, 255, 204, 0.05); }
         .result-danger { color: #ff416c; border-color: #ff416c; background: rgba(255, 65, 108, 0.05); }
+
+        .article-section h4 {
+            color: var(--primary-glow);
+            font-size: 14px;
+            margin: 14px 0 6px 0;
+            font-family: 'Share Tech Mono', monospace;
+        }
 
         .social-footer {
             margin-top: 20px;
@@ -328,7 +327,21 @@
 
     <div class="container">
         <h1 class="main-title">&gt; SAVE_GUARD.SYS</h1>
-        <div class="subtitle" id="subTitleText">Digital Security Intelligence & Store</div>
+        <div class="subtitle" id="subTitleText">Digital Security Intelligence & Media Hub</div>
+
+        <!-- قسم مقالات إرشادية وتثقيفية لقبول أدسنس (محتوى تعديلي غني) -->
+        <div class="card article-section" style="border-color: #38bdf8;">
+            <h3 id="artMainTitle"><i class="fa-solid fa-book-open"></i> Comprehensive Cyber Security & Digital Guide</h3>
+            
+            <h4 id="art1Head">1. Why Digital Security Matters in 2026</h4>
+            <p id="art1Body">As cyber threats evolve, safeguarding personal and professional digital assets has become crucial. Strong data privacy protocols, secure network monitoring, and awareness of phishing campaigns protect users from identity theft and malicious breaches.</p>
+            
+            <h4 id="art2Head">2. Best Practices for Creating Unbreakable Passwords</h4>
+            <p id="art2Body">A robust password combines uppercase letters, lowercase letters, numbers, and special symbols. Avoid using predictable patterns, birthdays, or dictionary words. Changing keys periodically and utilizing local entropy tools minimizes exposure risks.</p>
+
+            <h4 id="art3Head">3. Understanding Network Latency and Ping</h4>
+            <p id="art3Body">Network latency, commonly measured via Ping tests, dictates the time packets take to travel from your device to a server and back. Low ping values ensure seamless streaming, stable online gaming, and reliable remote cloud connectivity.</p>
+        </div>
 
         <!-- قسم فحص الـ Ping وسرعة الاتصال -->
         <div class="card" style="border-color: #f59e0b;">
@@ -340,7 +353,7 @@
             <div id="pingResultBox" class="result-box" style="display: none; text-align: center;">Awaiting test...</div>
         </div>
 
-        <!-- بوت الذكاء الاصطناعي الفوري (بدون API مفاتيح) -->
+        <!-- بوت الذكاء الاصطناعي الفوري -->
         <div class="card" style="border-color: #38bdf8;">
             <h3 id="aiTitle" style="color: #38bdf8;"><i class="fa-solid fa-brain"></i> 0. SaveGuard AI Pro Assistant</h3>
             <p id="aiDesc">Ask any question on any topic and get expert live answers instantly:</p>
@@ -412,20 +425,6 @@
     </div>
 
     <script>
-        // --- طبقة الحماية الأمنية المتقدمة ---
-        document.addEventListener('contextmenu', event => event.preventDefault());
-        document.addEventListener('keydown', function (e) {
-            if (
-                e.key === 'F12' || 
-                (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || 
-                (e.ctrlKey && e.key === 'U')
-            ) {
-                e.preventDefault();
-                alert('⚠️ Security Alert: Unauthorized source inspection attempt logged by SaveGuard!');
-                return false;
-            }
-        });
-
         // --- Matrix Background ---
         const canvas = document.getElementById('matrixCanvas');
         const ctx = canvas.getContext('2d');
@@ -453,11 +452,18 @@
         }
         setInterval(drawMatrix, 30);
 
-        // --- نظام ترجمة اللغات الحقيقي ---
+        // --- نظام ترجمة متكامل يشمل المقالات ---
         const translations = {
             en: {
                 topStore: "Store 🛒",
-                subTitle: "Digital Security Intelligence & Store",
+                subTitle: "Digital Security Intelligence & Media Hub",
+                artMainTitle: "Comprehensive Cyber Security & Digital Guide",
+                art1Head: "1. Why Digital Security Matters in 2026",
+                art1Body: "As cyber threats evolve, safeguarding personal and professional digital assets has become crucial. Strong data privacy protocols, secure network monitoring, and awareness of phishing campaigns protect users from identity theft and malicious breaches.",
+                art2Head: "2. Best Practices for Creating Unbreakable Passwords",
+                art2Body: "A robust password combines uppercase letters, lowercase letters, numbers, and special symbols. Avoid using predictable patterns, birthdays, or dictionary words. Changing keys periodically and utilizing local entropy tools minimizes exposure risks.",
+                art3Head: "3. Understanding Network Latency and Ping",
+                art3Body: "Network latency, commonly measured via Ping tests, dictates the time packets take to travel from your device to a server and back. Low ping values ensure seamless streaming, stable online gaming, and reliable remote cloud connectivity.",
                 pingTitle: "Network & Ping Monitor",
                 pingDesc: "Test your connection latency (Ping) and check your active network status in real-time:",
                 pingBtn: "Run Ping Test",
@@ -485,7 +491,14 @@
             },
             ar: {
                 topStore: "المتجر 🛒",
-                subTitle: "ذكاء الأمن الرقمي والمتجر الرسمي",
+                subTitle: "ذكاء الأمن الرقمي والوسائط",
+                artMainTitle: "الدليل الشامل لأمن المعلومات والتقنية الرقمية",
+                art1Head: "1. لماذا يُعد الأمن الرقمي بالغ الأهمية؟",
+                art1Body: "مع تطور التهديدات السيبرانية، أصبح حماية الأصول الرقمية الشخصية والمهنية أمراً حيوياً. إن بروتوكولات حماية الخصوصية ومراقبة الشبكات تساعد الأفراد على تجنب سرقة الهوية والاختراقات الخبيثة.",
+                art2Head: "2. أفضل الممارسات لإنشاء كلمات مرور غير قابلة للاختراق",
+                art2Body: "تعتمد كلمة المرور القوية على مزيج من الأحرف الكبيرة والصغيرة والأرقام والرموز الخاصة. تجنب استخدام الأنماط المتوقعة وتواريخ الميلاد، وقم بتغيير الرموز بشكل دوري لتقليل مخاطر التعرض للاختراق.",
+                art3Head: "3. فهم زمن الاستجابة (Ping) وسرعة شبكة الإنترنت",
+                art3Body: "يشير زمن انتقال الشبكة، الذي يُقاس عادةً عبر اختبارات البينغ، إلى الوقت الذي تستغرقه البيانات للوصول من جهازك إلى الخادم والعودة. تضمن قيم البينغ المنخفضة بثاً سلساً وألعاباً مستقرة.",
                 pingTitle: "مراقب الشبكة وسرعة الاتصال (Ping)",
                 pingDesc: "اختبر سرعة الاستجابة واتصال الإنترنت الخاص بك في الوقت الفعلي:",
                 pingBtn: "بدء اختبار البينغ",
@@ -513,7 +526,14 @@
             },
             fr: {
                 topStore: "Boutique 🛒",
-                subTitle: "Intelligence de Sécurité Numérique & Boutique",
+                subTitle: "Intelligence de Sécurité Numérique",
+                artMainTitle: "Guide Complet de Cybersécurité et Numérique",
+                art1Head: "1. Pourquoi la sécurité numérique est essentielle",
+                art1Body: "À mesure que les cybermenaces évoluent, la protection des actifs numériques est devenue cruciale. Des protocoles rigoureux protègent les utilisateurs contre le vol d'identité et les failles malveillantes.",
+                art2Head: "2. Meilleures pratiques pour des mots de passe robustes",
+                art2Body: "Un mot de passe robuste combine majuscules, minuscules, chiffres et symboles. Évitez les schémas prédictifs et renouvelez vos clés régulièrement pour minimiser les risques.",
+                art3Head: "3. Comprendre la latence réseau et le Ping",
+                art3Body: "La latence réseau, mesurée par les tests de Ping, détermine le temps de voyage des paquets de données. De faibles valeurs garantissent un streaming fluide et une connectivité stable.",
                 pingTitle: "Moniteur Réseau & Ping",
                 pingDesc: "Testez la latence de votre connexion (Ping) et l'état du réseau en temps réel:",
                 pingBtn: "Lancer le test Ping",
@@ -541,7 +561,14 @@
             },
             nl: {
                 topStore: "Winkel 🛒",
-                subTitle: "Digitale Beveiligingsintelligentie & Winkel",
+                subTitle: "Digitale Beveiligingsintelligentie",
+                artMainTitle: "Uitgebreide Cybersecurity & Digitale Gids",
+                art1Head: "1. Waarom digitale beveiliging belangrijk is",
+                art1Body: "Naarmate dreigingen evolueren, wordt het beschermen van digitale activa cruciaal. Sterke privacyprotocollen en netwerkmonitoring beschermen gebruikers tegen identiteitsdiefstal.",
+                art2Head: "2. Beste praktijken voor onbreekbare wachtwoorden",
+                art2Body: "Een robuust wachtwoord combineert hoofdletters, kleine letters, cijfers en symbolen. Vermijd voorspelbare patronen om risico's te minimaliseren.",
+                art3Head: "3. Netwerklatentie en Ping begrijpen",
+                art3Body: "Netwerklatentie bepaalt de reistijd van datapakketjes. Lage pingwaarden zorgen voor haperingsvrije streaming en stabiele online verbindingen.",
                 pingTitle: "Netwerk & Ping Monitor",
                 pingDesc: "Test uw verbindingslatencies (Ping) en actieve netwerkstatus in realtime:",
                 pingBtn: "Ping-test uitvoeren",
@@ -569,7 +596,14 @@
             },
             es: {
                 topStore: "Tienda 🛒",
-                subTitle: "Inteligencia de Seguridad Digital y Tienda",
+                subTitle: "Inteligencia de Seguridad Digital",
+                artMainTitle: "Guía Completa de Ciberseguridad y Digital",
+                art1Head: "1. Por qué importa la seguridad digital",
+                art1Body: "A medida que evolucionan las amenazas cibernéticas, salvaguardar los activos digitales es crucial. Los protocolos sólidos protegen a los usuarios contra el robo de identidad.",
+                art2Head: "2. Mejores prácticas para contraseñas seguras",
+                art2Body: "Una contraseña robusta combina letras mayúsculas, minúsculas, números y símbolos. Evite patrones predecibles para reducir riesgos.",
+                art3Head: "3. Comprender la latencia de red y el Ping",
+                art3Body: "La latencia de red dicta el tiempo que tardan los paquetes en viajar. Los valores bajos garantizan transmisiones fluidas y conectividad estable.",
                 pingTitle: "Monitor de Red y Ping",
                 pingDesc: "Pruebe la latencia de su conexión (Ping) y estado de red en tiempo real:",
                 pingBtn: "Ejecutar prueba de Ping",
@@ -597,7 +631,14 @@
             },
             de: {
                 topStore: "Shop 🛒",
-                subTitle: "Digitale Sicherheitsintelligenz & Shop",
+                subTitle: "Digitale Sicherheitsintelligenz",
+                artMainTitle: "Umfassender Cybersecurity- & Digitalratgeber",
+                art1Head: "1. Warum digitale Sicherheit wichtig ist",
+                art1Body: "Da sich Cyberbedrohungen weiterentwickeln, ist der Schutz digitaler Werte von entscheidender Bedeutung. Robuste Protokolle schützen Benutzer vor Identitätsdiebstahl.",
+                art2Head: "2. Best Practices für sichere Passwörter",
+                art2Body: "Ein starkes Passwort kombiniert Groß- und Kleinbuchstaben, Zahlen und Symbole. Vermeiden Sie vorhersehbare Muster.",
+                art3Head: "3. Netzwerk Latenz und Ping verstehen",
+                art3Body: "Die Latenz bestimmt die Umlaufzeit von Datenpaketen. Niedrige Ping-Werte gewährleisten reibungsloses Streaming und stabile Verbindungen.",
                 pingTitle: "Netzwerk- & Ping-Monitor",
                 pingDesc: "Testen Sie Ihre Latenz (Ping) und den Netzwerkstatus in Echtzeit:",
                 pingBtn: "Ping-Test starten",
@@ -638,6 +679,13 @@
 
             document.getElementById('topStoreText').innerText = t.topStore;
             document.getElementById('subTitleText').innerText = t.subTitle;
+            document.getElementById('artMainTitle').innerHTML = `<i class="fa-solid fa-book-open"></i> ${t.artMainTitle}`;
+            document.getElementById('art1Head').innerText = t.art1Head;
+            document.getElementById('art1Body').innerText = t.art1Body;
+            document.getElementById('art2Head').innerText = t.art2Head;
+            document.getElementById('art2Body').innerText = t.art2Body;
+            document.getElementById('art3Head').innerText = t.art3Head;
+            document.getElementById('art3Body').innerText = t.art3Body;
             document.getElementById('pingTitle').innerHTML = `<i class="fa-solid fa-network-wired"></i> ${t.pingTitle}`;
             document.getElementById('pingDesc').innerText = t.pingDesc;
             document.getElementById('pingBtnText').innerText = t.pingBtn;
@@ -698,7 +746,6 @@
 
         function handleAiEnter(event) { if (event.key === 'Enter') askGeminiInSite(); }
 
-        // --- محرك الذكاء الاصطناعي المحلي الفوري (بدون API مفاتيح ومجاني بالكامل) ---
         function askGeminiInSite() {
             const queryInput = document.getElementById('aiQueryInput');
             const resultBox = document.getElementById('aiResultBox');
@@ -737,7 +784,6 @@
                 } else if (currentLang === 'de') {
                     reply = `Bezüglich Ihrer Anfrage ("<strong>${query}</strong>"): Das SaveGuard System ist aktiv. Achten Sie stets auf starke Passwörter und Datensicherheit.`;
                 } else {
-                    // English Default
                     if (qLower.includes('hello') || qLower.includes('hi')) {
                         reply = "Hello! I am your SaveGuard AI assistant. How can I help you with digital security or general intelligence today?";
                     } else {
