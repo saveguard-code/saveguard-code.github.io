@@ -7,11 +7,10 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">SaveGuard & Media | Elite Security Hub & Digital Guide</title>
+    <title id="pageTitle">SaveGuard & Tech | Security Hub & Mobile Solutions</title>
 
-    <!-- رأس الأمان متوافق مع أدسنس -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta name="description" content="SaveGuard is your ultimate digital security intelligence hub, providing professional tools, network monitors, video stream extractors, and cybersecurity guides.">
+    <meta name="description" content="SaveGuard digital security intelligence, device guides, iPhone & Samsung repair solutions, and programming hub.">
 
     <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -121,20 +120,55 @@
             color: #ffffff;
         }
 
+        /* تخطيط الصفحة مع جانبي الإعلانات */
+        .page-wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 1300px;
+            gap: 20px;
+            padding: 20px 10px;
+            z-index: 2;
+        }
+
+        .ad-sidebar {
+            width: 250px;
+            min-width: 250px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .ad-box {
+            background: rgba(16, 24, 39, 0.5);
+            border: 1px dashed var(--border-cyber);
+            border-radius: 12px;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 12px;
+            font-family: 'Share Tech Mono', monospace;
+            text-align: center;
+            padding: 10px;
+        }
+
         .container {
             width: 100%;
-            max-width: 620px;
-            padding: 20px;
-            box-sizing: border-box;
+            max-width: 650px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            z-index: 2;
+        }
+
+        @media (max-width: 1024px) {
+            .ad-sidebar { display: none; } /* إخفاء الأشرطة الجانبية في الشاشات الصغيرة لتجنب المشاكل */
         }
 
         .main-title {
             font-size: 26px;
-            margin-top: 20px;
+            margin-top: 10px;
             margin-bottom: 5px;
             font-weight: 800;
             color: var(--primary-glow);
@@ -150,6 +184,47 @@
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 2px;
+        }
+
+        /* أزرار النقاط الـ 3 الرئيسية */
+        .nav-points-container {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .point-btn {
+            flex: 1;
+            background: rgba(16, 24, 39, 0.9);
+            border: 1px solid var(--primary-glow);
+            padding: 12px 8px;
+            border-radius: 12px;
+            color: #fff;
+            cursor: pointer;
+            text-align: center;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .point-btn i {
+            font-size: 18px;
+            color: var(--primary-glow);
+        }
+
+        .point-btn:hover {
+            background: var(--primary-glow);
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+        }
+
+        .point-btn:hover i {
+            color: var(--bg-dark);
         }
 
         .card {
@@ -199,9 +274,7 @@
             user-select: text;
         }
 
-        .custom-input:focus {
-            border-color: var(--primary-glow);
-        }
+        .custom-input:focus { border-color: var(--primary-glow); }
 
         .action-btn {
             background: linear-gradient(135deg, #00ffcc, #3b82f6);
@@ -260,11 +333,56 @@
         .result-safe { color: #00ffcc; border-color: #00ffcc; background: rgba(0, 255, 204, 0.05); }
         .result-danger { color: #ff416c; border-color: #ff416c; background: rgba(255, 65, 108, 0.05); }
 
-        .article-section h4 {
+        /* Modal النافذة المنبثقة للتفاصيل */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(5, 11, 20, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            border: 1px solid var(--primary-glow);
+            border-radius: 16px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 24px;
+            position: relative;
+            box-shadow: 0 0 30px rgba(0, 255, 204, 0.2);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #94a3b8;
+            font-size: 22px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .close-modal:hover { color: var(--primary-glow); }
+
+        .modal-body h4 {
             color: var(--primary-glow);
-            font-size: 14px;
             margin: 14px 0 6px 0;
             font-family: 'Share Tech Mono', monospace;
+        }
+
+        .modal-body ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            color: #cbd5e1;
+            line-height: 1.6;
         }
 
         .social-footer {
@@ -314,10 +432,6 @@
             text-decoration: none;
             transition: 0.3s;
         }
-
-        .legal-links a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
@@ -334,114 +448,217 @@
             <i class="fa-solid fa-globe"></i>
             <select class="language-select" id="langPicker" onchange="changeLanguage()">
                 <option value="en" selected>English</option>
-                <option value="nl">Nederlands</option>
                 <option value="ar">العربية</option>
                 <option value="fr">Français</option>
+                <option value="nl">Nederlands</option>
                 <option value="es">Español</option>
                 <option value="de">Deutsch</option>
             </select>
         </div>
     </div>
 
-    <div class="container">
-        <h1 class="main-title">&gt; SAVE_GUARD.SYS</h1>
-        <div class="subtitle" id="subTitleText">Digital Security Intelligence & Media Hub</div>
+    <!-- الهيكل الرئيسي للموقع مع المساحات الإعلانية الجانبية -->
+    <div class="page-wrapper">
 
-        <!-- قسم مقالات إرشادية وتثقيفية لقبول أدسنس -->
-        <div class="card article-section" style="border-color: #38bdf8;">
-            <h3 id="artMainTitle"><i class="fa-solid fa-book-open"></i> Comprehensive Cyber Security & Digital Guide</h3>
-            
-            <h4 id="art1Head">1. Why Digital Security Matters in 2026</h4>
-            <p id="art1Body">As cyber threats evolve, safeguarding personal and professional digital assets has become crucial. Strong data privacy protocols, secure network monitoring, and awareness of phishing campaigns protect users from identity theft and malicious breaches.</p>
-            
-            <h4 id="art2Head">2. Best Practices for Creating Unbreakable Passwords</h4>
-            <p id="art2Body">A robust password combines uppercase letters, lowercase letters, numbers, and special symbols. Avoid using predictable patterns, birthdays, or dictionary words. Changing keys periodically and utilizing local entropy tools minimizes exposure risks.</p>
-
-            <h4 id="art3Head">3. Understanding Network Latency and Ping</h4>
-            <p id="art3Body">Network latency, commonly measured via Ping tests, dictates the time packets take to travel from your device to a server and back. Low ping values ensure seamless streaming, stable online gaming, and reliable remote cloud connectivity.</p>
-        </div>
-
-        <!-- قسم فحص الـ Ping وسرعة الاتصال -->
-        <div class="card" style="border-color: #f59e0b;">
-            <h3 id="pingTitle" style="color: #f59e0b;"><i class="fa-solid fa-network-wired"></i> Network & Ping Monitor</h3>
-            <p id="pingDesc">Test your connection latency (Ping) and check your active network status in real-time:</p>
-            <button class="action-btn" style="background: linear-gradient(135deg, #f59e0b, #ef4444); width: 100%; margin-top: 6px;" onclick="checkNetworkPing()">
-                <i class="fa-solid fa-wave-square"></i> <span id="pingBtnText">Run Ping Test</span>
-            </button>
-            <div id="pingResultBox" class="result-box" style="display: none; text-align: center;">Awaiting test...</div>
-        </div>
-
-        <!-- بوت الذكاء الاصطناعي الفوري -->
-        <div class="card" style="border-color: #38bdf8;">
-            <h3 id="aiTitle" style="color: #38bdf8;"><i class="fa-solid fa-brain"></i> 0. SaveGuard AI Pro Assistant</h3>
-            <p id="aiDesc">Ask any question on any topic and get expert live answers instantly:</p>
-            <div class="input-group">
-                <input type="text" id="aiQueryInput" class="custom-input" placeholder="Ask AI anything..." onkeypress="handleAiEnter(event)">
-                <button class="action-btn" onclick="askGeminiInSite()"><i class="fa-solid fa-bolt"></i> <span id="aiBtnText">Ask AI</span></button>
+        <!-- الإعلان الجانبي الأيسر (AdSense Sidebar Left) -->
+        <div class="ad-sidebar">
+            <div class="ad-box">
+                <!-- ضع كود إعلان أدسنس العمودي هنا -->
+                <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4493514633554844" data-ad-slot="XXXXX" data-ad-format="auto"></ins> -->
+                <span>[ ADSENSE SIDEBAR BANNER 300x600 ]</span>
             </div>
-            <div id="aiResultBox" class="result-box" style="display: none; color: #38bdf8; max-height: 350px; overflow-y: auto;">Awaiting query...</div>
         </div>
 
-        <!-- القسم 1: تحميل الفيديوهات مباشرة -->
-        <div class="card">
-            <h3 id="tool1Title"><i class="fa-solid fa-video"></i> 1. HD Video Stream Downloader</h3>
-            <p id="tool1Desc">Insert target stream URL to extract and download media in Full HD directly here:</p>
-            <div class="input-group">
-                <input type="text" id="videoUrl" class="custom-input" placeholder="Paste YouTube/Social link...">
-                <button class="action-btn" onclick="fetchAndDownloadVideo()"><i class="fa-solid fa-download"></i> <span id="fetchBtnText">Fetch</span></button>
+        <!-- محتوى الموقع الأوسط -->
+        <div class="container">
+            <h1 class="main-title">&gt; SAVE_GUARD.SYS</h1>
+            <div class="subtitle" id="subTitleText">Cybersecurity & Mobile Specs Hub</div>
+
+            <!-- النقاط الـ 3 الإضافية أعلى الموقع -->
+            <div class="nav-points-container">
+                <button class="point-btn" onclick="openModal('modalIphone')">
+                    <i class="fa-brands fa-apple"></i>
+                    <span id="btnIphoneText">1. iPhone Hub</span>
+                </button>
+                <button class="point-btn" onclick="openModal('modalSamsung')">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <span id="btnSamsungText">2. Samsung Hub</span>
+                </button>
+                <button class="point-btn" onclick="openModal('modalFix')">
+                    <i class="fa-solid fa-wrench"></i>
+                    <span id="btnFixText">3. Phone Fixes</span>
+                </button>
             </div>
-            <div style="display: flex; gap: 6px; margin-top: 10px;">
-                <button class="action-btn" style="flex: 1; font-size: 11px; padding: 6px;" onclick="setDownloadQuality('720p')">🎬 720p</button>
-                <button class="action-btn" style="flex: 1; font-size: 11px; padding: 6px;" onclick="setDownloadQuality('1080p')">🔥 1080p</button>
-                <button class="action-btn" style="flex: 1; font-size: 11px; padding: 6px;" onclick="setDownloadQuality('mp3')">🎵 MP3</button>
+
+            <!-- قسم مقالات إرشادية وتثقيفية لقبول أدسنس -->
+            <div class="card article-section" style="border-color: #38bdf8;">
+                <h3 id="artMainTitle"><i class="fa-solid fa-book-open"></i> Comprehensive Cyber Security & Programming Guide</h3>
+                
+                <h4 id="art1Head">1. Why Digital Security & Python Matter in 2026</h4>
+                <p id="art1Body">As cyber threats evolve, safeguarding personal and professional digital assets has become crucial. Python has emerged as the premier programming language for cybersecurity analysts, allowing fast script development, automated threat hunting, network scanning tools, and robust system auditing.</p>
+                
+                <h4 id="art2Head">2. Securing Smartphones and Computers from Intrusions</h4>
+                <p id="art2Body">Protecting your devices requires regular operating system updates, installing trusted endpoint security software, disabling unknown Bluetooth/Wi-Fi beacons, and avoiding suspicious email attachments or malicious payloads.</p>
+
+                <h4 id="art3Head">3. Essential Python Scripts for Network Defense</h4>
+                <p id="art3Body">Python empowers developers and security engineers to write port scanners, packet analyzers, and log monitors with minimal code.</p>
             </div>
-            <div id="videoResultBox" class="result-box" style="display: none; text-align: left;">Ready for processing...</div>
+
+            <!-- قسم فحص الـ Ping وسرعة الاتصال -->
+            <div class="card" style="border-color: #f59e0b;">
+                <h3 id="pingTitle" style="color: #f59e0b;"><i class="fa-solid fa-network-wired"></i> Network & Ping Monitor</h3>
+                <p id="pingDesc">Test your connection latency (Ping) and check your active network status in real-time:</p>
+                <button class="action-btn" style="background: linear-gradient(135deg, #f59e0b, #ef4444); width: 100%; margin-top: 6px;" onclick="checkNetworkPing()">
+                    <i class="fa-solid fa-wave-square"></i> <span id="pingBtnText">Run Ping Test</span>
+                </button>
+                <div id="pingResultBox" class="result-box" style="display: none; text-align: center;">Awaiting test...</div>
+            </div>
+
+            <!-- بوت الذكاء الاصطناعي الفوري -->
+            <div class="card" style="border-color: #38bdf8;">
+                <h3 id="aiTitle" style="color: #38bdf8;"><i class="fa-solid fa-brain"></i> SaveGuard AI Pro Assistant</h3>
+                <p id="aiDesc">Ask any question on any topic and get expert live answers instantly:</p>
+                <div class="input-group">
+                    <input type="text" id="aiQueryInput" class="custom-input" placeholder="Ask AI anything..." onkeypress="handleAiEnter(event)">
+                    <button class="action-btn" onclick="askGeminiInSite()"><i class="fa-solid fa-bolt"></i> <span id="aiBtnText">Ask AI</span></button>
+                </div>
+                <div id="aiResultBox" class="result-box" style="display: none; color: #38bdf8; max-height: 350px; overflow-y: auto;">Awaiting query...</div>
+            </div>
+
+            <!-- قسم فحص الروابط -->
+            <div class="card">
+                <h3 id="tool2Title"><i class="fa-solid fa-shield-halved"></i> Safe URL & Phishing Inspector</h3>
+                <p id="tool2Desc">Analyze target links or un-shorten suspect URLs before clicking:</p>
+                <div class="input-group">
+                    <input type="text" id="checkUrl" class="custom-input" placeholder="Enter link or domain...">
+                    <button class="action-btn" onclick="checkUrlSecurity()"><i class="fa-solid fa-radar"></i> <span id="scanBtnText">Scan</span></button>
+                </div>
+                <div id="urlResult" class="result-box" style="display: none; text-align: center;">System ready.</div>
+            </div>
+
+            <!-- قسم كلمات المرور -->
+            <div class="card">
+                <h3 id="tool3Title"><i class="fa-solid fa-key"></i> Password Strength & Leak Check</h3>
+                <p id="tool3Desc">Test your password locally for strength and entropy levels:</p>
+                <div class="input-group">
+                    <input type="password" id="passInput" class="custom-input" placeholder="Type password...">
+                    <button class="action-btn" onclick="checkPasswordStrength()"><i class="fa-solid fa-lock-open"></i> <span id="auditBtnText">Audit</span></button>
+                </div>
+                <div id="passAuditResult" class="result-box" style="display: none; text-align: center;">Awaiting password...</div>
+                
+                <p style="margin-top: 12px; font-size: 11px; color: #94a3b8;" id="tool3SubDesc">Need a secure token instead?</p>
+                <div class="password-box" id="passwordDisplay">SECURE_KEY_PENDING</div>
+                <button class="action-btn" style="width: 100%; margin-top: 6px;" onclick="generateSecurePassword()"><i class="fa-solid fa-rotate"></i> <span id="genBtnText">Generate Token</span></button>
+            </div>
+
+            <!-- رابط المتجر الرئيسي -->
+            <div class="card" style="border-color: #00ffcc; text-align: center;">
+                <h3><i class="fa-solid fa-store"></i> <span id="storeTitle">SaveGuard Official Apparel Store</span></h3>
+                <p id="storeDesc">Get high-tech gear, hoodies, and exclusive security merchandise.</p>
+                <a href="https://www.redbubble.com/people/Mr-seller1/shop" target="_blank" class="store-btn" id="storeBtnText">Visit Store 🚀</a>
+            </div>
+
+            <div class="social-footer">
+                <div class="social-icons">
+                    <a href="https://github.com/saveguard-code" target="_blank" class="social-icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://linkedin.com" target="_blank" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <footer>&copy; 2026 SAVE_GUARD.SYS // ALL RIGHTS RESERVED.</footer>
+                <div class="legal-links">
+                    <a href="privacy.html" id="privacyLink">Privacy Policy</a> | 
+                    <a href="contact.html" id="contactLink">Contact Us</a>
+                </div>
+            </div>
         </div>
 
-        <!-- القسم 2: فحص الروابط -->
-        <div class="card">
-            <h3 id="tool2Title"><i class="fa-solid fa-shield-halved"></i> 2. Safe URL & Phishing Inspector</h3>
-            <p id="tool2Desc">Analyze target links or un-shorten suspect URLs before clicking:</p>
-            <div class="input-group">
-                <input type="text" id="checkUrl" class="custom-input" placeholder="Enter link or domain...">
-                <button class="action-btn" onclick="checkUrlSecurity()"><i class="fa-solid fa-radar"></i> <span id="scanBtnText">Scan</span></button>
+        <!-- الإعلان الجانبي الأيمن (AdSense Sidebar Right) -->
+        <div class="ad-sidebar">
+            <div class="ad-box">
+                <!-- ضع كود إعلان أدسنس العمودي الثاني هنا -->
+                <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4493514633554844" data-ad-slot="YYYYY" data-ad-format="auto"></ins> -->
+                <span>[ ADSENSE SIDEBAR BANNER 300x600 ]</span>
             </div>
-            <div id="urlResult" class="result-box" style="display: none; text-align: center;">System ready.</div>
         </div>
 
-        <!-- القسم 3: كلمات المرور -->
-        <div class="card">
-            <h3 id="tool3Title"><i class="fa-solid fa-key"></i> 3. Password Strength & Leak Check</h3>
-            <p id="tool3Desc">Test your password locally for strength and entropy levels:</p>
-            <div class="input-group">
-                <input type="password" id="passInput" class="custom-input" placeholder="Type password...">
-                <button class="action-btn" onclick="checkPasswordStrength()"><i class="fa-solid fa-lock-open"></i> <span id="auditBtnText">Audit</span></button>
-            </div>
-            <div id="passAuditResult" class="result-box" style="display: none; text-align: center;">Awaiting password...</div>
-            
-            <p style="margin-top: 12px; font-size: 11px; color: #94a3b8;" id="tool3SubDesc">Need a secure token instead?</p>
-            <div class="password-box" id="passwordDisplay">SECURE_KEY_PENDING</div>
-            <button class="action-btn" style="width: 100%; margin-top: 6px;" onclick="generateSecurePassword()"><i class="fa-solid fa-rotate"></i> <span id="genBtnText">Generate Token</span></button>
-        </div>
+    </div>
 
-        <!-- رابط المتجر الرئيسي -->
-        <div class="card" style="border-color: #00ffcc; text-align: center;">
-            <h3><i class="fa-solid fa-store"></i> <span id="storeTitle">SaveGuard Official Apparel Store</span></h3>
-            <p id="storeDesc">Get high-tech gear, hoodies, and exclusive security merchandise.</p>
-            <a href="https://www.redbubble.com/people/Mr-seller1/shop" target="_blank" class="store-btn" id="storeBtnText">Visit Store 🚀</a>
-        </div>
+    <!-- النوافذ المنبثقة للأزرار الـ 3 (Modals) -->
 
-        <div class="social-footer">
-            <div class="social-icons">
-                <a href="https://github.com/saveguard-code" target="_blank" class="social-icon"><i class="fa-brands fa-github"></i></a>
-                <a href="https://linkedin.com" target="_blank" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+    <!-- Modal 1: iPhone -->
+    <div id="modalIphone" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modalIphone')">&times;</span>
+            <div class="modal-body" id="mIphoneContent">
+                <h3><i class="fa-brands fa-apple"></i> Apple iPhone Specs & Latest Models</h3>
+                <h4>• iPhone 17 Pro & 17 Pro Max</h4>
+                <ul>
+                    <li><b>Processor:</b> A19 Pro (3nm) with Vapor Chamber Cooling.</li>
+                    <li><b>Display:</b> 6.3" and 6.9" Super Retina XDR OLED (120Hz ProMotion).</li>
+                    <li><b>Camera System:</b> 48MP Triple Camera, 8x Optical Zoom.</li>
+                </ul>
+                <h4>• iPhone 16 Pro Max</h4>
+                <ul>
+                    <li><b>Processor:</b> A18 Pro Chip.</li>
+                    <li><b>Display:</b> 6.9" OLED display with Titanium design.</li>
+                    <li><b>Key Features:</b> Dedicated Camera Control button and Apple Intelligence.</li>
+                </ul>
             </div>
-            <footer>&copy; 2026 SAVE_GUARD.SYS // ALL RIGHTS RESERVED.</footer>
-            <div class="legal-links">
-                <a href="privacy.html" id="privacyLink">Privacy Policy</a> | 
-                <a href="contact.html" id="contactLink">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- Modal 2: Samsung -->
+    <div id="modalSamsung" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modalSamsung')">&times;</span>
+            <div class="modal-body" id="mSamsungContent">
+                <h3><i class="fa-solid fa-mobile-screen-button"></i> Samsung Galaxy Latest Models</h3>
+                <h4>• Samsung Galaxy S26 Ultra</h4>
+                <ul>
+                    <li><b>Processor:</b> Snapdragon 8 Elite Gen 5 for Galaxy.</li>
+                    <li><b>Display:</b> 6.9" Dynamic AMOLED 2X, 120Hz Adaptive Refresh.</li>
+                    <li><b>Camera:</b> 200MP Main + 50MP Ultra-Wide + 50MP Telephoto (10x zoom).</li>
+                </ul>
+                <h4>• Samsung Galaxy S25 Ultra</h4>
+                <ul>
+                    <li><b>Processor:</b> Snapdragon 8 Gen 4.</li>
+                    <li><b>Features:</b> Integrated S-Pen, Anti-reflective Gorilla Armor glass, Galaxy AI.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: Common Mobile Troubleshoot & Solutions -->
+    <div id="modalFix" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modalFix')">&times;</span>
+            <div class="modal-body" id="mFixContent">
+                <h3><i class="fa-solid fa-wrench"></i> Common iPhone & Samsung Troubleshooting Solutions</h3>
+                
+                <h4>1. Battery Draining Quickly (iPhone & Samsung)</h4>
+                <ul>
+                    <li><b>Cause:</b> Background app refresh, high screen brightness, or battery degradation.</li>
+                    <li><b>Fix:</b> Go to Settings > Battery > Enable Power Saving Mode. Turn off "Background App Refresh" for non-essential apps.</li>
+                </ul>
+
+                <h4>2. Overheating During Usage or Charging</h4>
+                <ul>
+                    <li><b>Cause:</b> Heavy gaming, fast charging in hot environments, or rogue background processes.</li>
+                    <li><b>Fix:</b> Remove heavy protective cases while charging. Force restart the device and update to the latest iOS/Android version.</li>
+                </ul>
+
+                <h4>3. Wi-Fi / Cellular Signal Drops</h4>
+                <ul>
+                    <li><b>Cause:</b> Corrupted network configuration settings.</li>
+                    <li><b>Fix:</b> Toggle Airplane mode ON for 10 seconds. If unresolved, go to Settings > General / System > Reset Network Settings.</li>
+                </ul>
+
+                <h4>4. Screen Blackout or Frozen Display</h4>
+                <ul>
+                    <li><b>Fix for iPhone:</b> Press & quick release Volume Up, then Volume Down, then hold Side Power Button until the Apple logo appears.</li>
+                    <li><b>Fix for Samsung:</b> Press and hold Power Button + Volume Down simultaneously for 10-15 seconds to force reboot.</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -474,34 +691,40 @@
         }
         setInterval(drawMatrix, 30);
 
+        // --- Modals Management ---
+        function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+        window.onclick = function(e) {
+            if (e.target.classList.contains('modal')) { e.target.style.display = 'none'; }
+        }
+
         // --- نظام ترجمة متكامل ---
         const translations = {
             en: {
+                btnIphone: "1. iPhone Hub",
+                btnSamsung: "2. Samsung Hub",
+                btnFix: "3. Phone Fixes",
                 topStore: "Store 🛒",
-                subTitle: "Digital Security Intelligence & Media Hub",
-                artMainTitle: "Comprehensive Cyber Security & Digital Guide",
-                art1Head: "1. Why Digital Security Matters in 2026",
-                art1Body: "As cyber threats evolve, safeguarding personal and professional digital assets has become crucial. Strong data privacy protocols, secure network monitoring, and awareness of phishing campaigns protect users from identity theft and malicious breaches.",
-                art2Head: "2. Best Practices for Creating Unbreakable Passwords",
-                art2Body: "A robust password combines uppercase letters, lowercase letters, numbers, and special symbols. Avoid using predictable patterns, birthdays, or dictionary words. Changing keys periodically and utilizing local entropy tools minimizes exposure risks.",
-                art3Head: "3. Understanding Network Latency and Ping",
-                art3Body: "Network latency, commonly measured via Ping tests, dictates the time packets take to travel from your device to a server and back. Low ping values ensure seamless streaming, stable online gaming, and reliable remote cloud connectivity.",
+                subTitle: "Cybersecurity & Mobile Specs Hub",
+                artMainTitle: "Comprehensive Cyber Security & Programming Guide",
+                art1Head: "1. Why Digital Security & Python Matter in 2026",
+                art1Body: "As cyber threats evolve, safeguarding personal and professional digital assets has become crucial. Python has emerged as the premier programming language for cybersecurity analysts.",
+                art2Head: "2. Securing Smartphones and Computers from Intrusions",
+                art2Body: "Protecting your devices requires regular operating system updates, installing trusted endpoint security software, and avoiding suspicious attachments.",
+                art3Head: "3. Essential Python Scripts for Network Defense",
+                art3Body: "Python empowers developers and security engineers to write port scanners, packet analyzers, and log monitors with minimal code.",
                 pingTitle: "Network & Ping Monitor",
                 pingDesc: "Test your connection latency (Ping) and check your active network status in real-time:",
                 pingBtn: "Run Ping Test",
-                aiTitle: "0. SaveGuard AI Pro Assistant",
+                aiTitle: "SaveGuard AI Pro Assistant",
                 aiDesc: "Ask any question on any topic and get expert live answers instantly:",
                 aiInputPlaceholder: "Ask AI anything...",
                 aiBtn: "Ask AI",
-                tool1Title: "1. HD Video Stream Downloader",
-                tool1Desc: "Insert target stream URL to extract and download media in Full HD directly here:",
-                videoInputPlaceholder: "Paste YouTube/Social link...",
-                fetchBtn: "Fetch",
-                tool2Title: "2. Safe URL & Phishing Inspector",
+                tool2Title: "Safe URL & Phishing Inspector",
                 tool2Desc: "Analyze target links or un-shorten suspect URLs before clicking:",
                 urlInputPlaceholder: "Enter link or domain...",
                 scanBtn: "Scan",
-                tool3Title: "3. Password Strength & Leak Check",
+                tool3Title: "Password Strength & Leak Check",
                 tool3Desc: "Test your password locally for strength and entropy levels:",
                 passInputPlaceholder: "Type password...",
                 auditBtn: "Audit",
@@ -514,31 +737,30 @@
                 contactText: "Contact Us"
             },
             ar: {
+                btnIphone: "1. أجهزة آيفون",
+                btnSamsung: "2. أجهزة سامسونج",
+                btnFix: "3. حلول الأعطال",
                 topStore: "المتجر 🛒",
-                subTitle: "ذكاء الأمن الرقمي والوسائط",
-                artMainTitle: "الدليل الشامل لأمن المعلومات والتقنية الرقمية",
-                art1Head: "1. لماذا يُعد الأمن الرقمي بالغ الأهمية؟",
-                art1Body: "مع تطور التهديدات السيبرانية، أصبح حماية الأصول الرقمية الشخصية والمهنية أمراً حيوياً. إن بروتوكولات حماية الخصوصية ومراقبة الشبكات تساعد الأفراد على تجنب سرقة الهوية والاختراقات الخبيثة.",
-                art2Head: "2. أفضل الممارسات لإنشاء كلمات مرور غير قابلة للاختراق",
-                art2Body: "تعتمد كلمة المرور القوية على مزيج من الأحرف الكبيرة والصغيرة والأرقام والرموز الخاصة. تجنب استخدام الأنماط المتوقعة وتواريخ الميلاد، وقم بتغيير الرموز بشكل دوري لتقليل مخاطر التعرض للاختراق.",
-                art3Head: "3. فهم زمن الاستجابة (Ping) وسرعة شبكة الإنترنت",
-                art3Body: "يشير زمن انتقال الشبكة، الذي يُقاس عادةً عبر اختبارات البينغ، إلى الوقت الذي تستغرقه البيانات للوصول من جهازك إلى الخادم والعودة. تضمن قيم البينغ المنخفضة بثاً سلساً وألعاباً مستقرة.",
+                subTitle: "مركز الأمن الرقمي ومواصفات الهواتف",
+                artMainTitle: "الدليل الشامل لأمن المعلومات ولغة بايثون والبرمجة",
+                art1Head: "1. لماذا يُعد الأمن السيبراني ولغة بايثون أساسيين؟",
+                art1Body: "مع تطور التهديدات السيبرانية، أصبحت حماية الأصول الرقمية أمراً حيوياً. لقد برزت لغة بايثون كأفضل لغة برمجة لمحللي أمن المعلومات.",
+                art2Head: "2. حماية الهواتف الذكية وأجهزة الكمبيوتر من الاختراق",
+                art2Body: "تتطلب حماية أجهزتك تحديث نظام التشغيل باستمرار، وتثبيت برامج موثوقة للحماية، وتجنب فتح مرفقات البريد الإلكتروني المشبوهة.",
+                art3Head: "3. سكربتات بايثون الأساسية للدفاع عن الشبكات",
+                art3Body: "تمكن بايثون المبرمجين ومهندسي الأمان من كتابة ماسحات المنافذ (Port Scanners) ومحللات حزم البيانات بأكواد برمجية قليلة.",
                 pingTitle: "مراقب الشبكة وسرعة الاتصال (Ping)",
                 pingDesc: "اختبر سرعة الاستجابة واتصال الإنترنت الخاص بك في الوقت الفعلي:",
                 pingBtn: "بدء اختبار البينغ",
-                aiTitle: "0. مساعد الذكاء الاصطناعي (SaveGuard AI)",
+                aiTitle: "مساعد الذكاء الاصطناعي (SaveGuard AI)",
                 aiDesc: "اطرح أي سؤال في أي مجال واحصل على إجابة ذكية واحترافية فوراً:",
                 aiInputPlaceholder: "اسأل عن أي شيء في العالم...",
                 aiBtn: "اسأل الذكاء الاصطناعي",
-                tool1Title: "1. محمل الفيديوهات بدقة عالية",
-                tool1Desc: "أدخل رابط الفيديو لاستخراج وسائط التحميل المباشر بجودة عالية هنا:",
-                videoInputPlaceholder: "الصق رابط يوتيوب أو مواقع التواصل...",
-                fetchBtn: "جلب",
-                tool2Title: "2. فاحص الروابط وروابط التصيد",
+                tool2Title: "فاحص الروابط وروابط التصيد",
                 tool2Desc: "قم بتحليل الروابط المشبوهة أو كشف الروابط المختصرة قبل النقر عليها:",
                 urlInputPlaceholder: "أدخل الرابط أو النطاق هنا...",
                 scanBtn: "فحص",
-                tool3Title: "3. فحص قوة كلمات المرور",
+                tool3Title: "فحص قوة كلمات المرور",
                 tool3Desc: "اختبر كلمة المرور الخاصة بك محلياً لمعرفة مدى قوتها وتعقيدها:",
                 passInputPlaceholder: "اكتب كلمة المرور...",
                 auditBtn: "تدقيق",
@@ -549,154 +771,6 @@
                 storeBtn: "زيارة المتجر 🚀",
                 privacyText: "سياسة الخصوصية",
                 contactText: "اتصل بنا"
-            },
-            fr: {
-                topStore: "Boutique 🛒",
-                subTitle: "Intelligence de Sécurité Numérique",
-                artMainTitle: "Guide Complet de Cybersécurité et Numérique",
-                art1Head: "1. Pourquoi la sécurité numérique est essentielle",
-                art1Body: "À mesure que les cybermenaces évoluent, la protection des actifs numériques est devenue cruciale. Des protocoles rigoureux protègent les utilisateurs contre le vol d'identité et les failles malveillantes.",
-                art2Head: "2. Meilleures pratiques pour des mots de passe robustes",
-                art2Body: "Un mot de passe robuste combine majuscules, minuscules, chiffres et symboles. Évitez les schémas prédictifs et renouvelez vos clés régulièrement pour minimiser les risques.",
-                art3Head: "3. Comprendre la latence réseau et le Ping",
-                art3Body: "La latence réseau, mesurée par les tests de Ping, détermine le temps de voyage des paquets de données. De faibles valeurs garantissent un streaming fluide et une connectivité stable.",
-                pingTitle: "Moniteur Réseau & Ping",
-                pingDesc: "Testez la latence de votre connexion (Ping) et l'état du réseau en temps réel:",
-                pingBtn: "Lancer le test Ping",
-                aiTitle: "0. Assistant SaveGuard AI",
-                aiDesc: "Posez n'importe quelle question et obtenez des réponses d'experts en direct:",
-                aiInputPlaceholder: "Posez vos questions...",
-                aiBtn: "Demander à l'IA",
-                tool1Title: "1. Téléchargeur de Flux Vidéo HD",
-                tool1Desc: "Insérez l'URL du flux pour extraire et télécharger directement ici:",
-                videoInputPlaceholder: "Collez le lien YouTube/Réseaux...",
-                fetchBtn: "Récupérer",
-                tool2Title: "2. Inspecteur d'URLs & Phishing",
-                tool2Desc: "Analysez les liens cibles ou les URLs suspectes avant de cliquer:",
-                urlInputPlaceholder: "Entrez le lien ou domaine...",
-                scanBtn: "Analyser",
-                tool3Title: "3. Vérification de Mot de Passe",
-                tool3Desc: "Testez localement la force et le niveau d'entropie de votre mot de passe:",
-                passInputPlaceholder: "Tapez le mot de passe...",
-                auditBtn: "Auditer",
-                tool3SubDesc: "Besoin d'un jeton sécurisé à la place ?",
-                genBtn: "Générer un jeton",
-                storeTitle: "Boutique Officielle SaveGuard",
-                storeDesc: "Obtenez des équipements high-tech, des sweats à capuche et des articles exclusifs.",
-                storeBtn: "Visiter la boutique 🚀",
-                privacyText: "Politique de confidentialité",
-                contactText: "Contactez-nous"
-            },
-            nl: {
-                topStore: "Winkel 🛒",
-                subTitle: "Digitale Beveiligingsintelligentie",
-                artMainTitle: "Uitgebreide Cybersecurity & Digitale Gids",
-                art1Head: "1. Waarom digitale beveiliging belangrijk is",
-                art1Body: "Naarmate dreigingen evolueren, wordt het beschermen van digitale activa cruciaal. Sterke privacyprotocollen en netwerkmonitoring beschermen gebruikers tegen identiteitsdiefstal.",
-                art2Head: "2. Beste praktijken voor onbreekbare wachtwoorden",
-                art2Body: "Een robuust wachtwoord combineert hoofdletters, kleine letters, cijfers en symbolen. Vermijd voorspelbare patronen om risico's te minimaliseren.",
-                art3Head: "3. Netwerklatentie en Ping begrijpen",
-                art3Body: "Netwerklatentie bepaalt de reistijd van datapakketjes. Lage pingwaarden zorgen voor haperingsvrije streaming en stabiele online verbindingen.",
-                pingTitle: "Netwerk & Ping Monitor",
-                pingDesc: "Test uw verbindingslatencies (Ping) en actieve netwerkstatus in realtime:",
-                pingBtn: "Ping-test uitvoeren",
-                aiTitle: "0. SaveGuard AI Assistent",
-                aiDesc: "Stel elke vraag over elk onderwerp en krijg direct live antwoorden:",
-                aiInputPlaceholder: "Stel een vraag...",
-                aiBtn: "Vraag AI",
-                tool1Title: "1. HD Video Stream Downloader",
-                tool1Desc: "Voer doelstream-URL in om media hier direct te downloaden:",
-                videoInputPlaceholder: "Plak YouTube/sociale link...",
-                fetchBtn: "Ophalen",
-                tool2Title: "2. Veilige URL & Phishing Inspector",
-                tool2Desc: "Analyseer doelkoppelingen of verdachte URL's voordat u klikt:",
-                urlInputPlaceholder: "Voer link of domein in...",
-                scanBtn: "Scannen",
-                tool3Title: "3. Wachtwoordsterkte & Lekcontrole",
-                tool3Desc: "Test uw wachtwoord lokaal op sterkte en entropieniveaus:",
-                passInputPlaceholder: "Typ wachtwoord...",
-                auditBtn: "Audit",
-                tool3SubDesc: "Heeft u in plaats daarvan een beveiligde token nodig?",
-                genBtn: "Token genereren",
-                storeTitle: "SaveGuard Officiële Kledingwinkel",
-                storeDesc: "Ontvang hightechuitrusting, hoodies en exclusieve beveiligingsmerchandise.",
-                storeBtn: "Bezoek winkel 🚀",
-                privacyText: "Privacybeleid",
-                contactText: "Neem contact op"
-            },
-            es: {
-                topStore: "Tienda 🛒",
-                subTitle: "Inteligencia de Seguridad Digital",
-                artMainTitle: "Guía Completa de Ciberseguridad y Digital",
-                art1Head: "1. Por qué importa la seguridad digital",
-                art1Body: "A medida que evolucionan las amenazas cibernéticas, salvaguardar los activos digitales es crucial. Los protocolos sólidos protegen a los usuarios contra el robo de identidad.",
-                art2Head: "2. Mejores prácticas para contraseñas seguras",
-                art2Body: "Una contraseña robusta combina letras mayúsculas, minúsculas, números y símbolos. Evite patrones predecibles para reducir riesgos.",
-                art3Head: "3. Comprender la latencia de red y el Ping",
-                art3Body: "La latencia de red dicta el tiempo que tardan los paquetes en viajar. Los valores bajos garantizan transmisiones fluidas y conectividad estable.",
-                pingTitle: "Monitor de Red y Ping",
-                pingDesc: "Pruebe la latencia de su conexión (Ping) y estado de red en tiempo real:",
-                pingBtn: "Ejecutar prueba de Ping",
-                aiTitle: "0. Asistente SaveGuard AI",
-                aiDesc: "Haga cualquier pregunta sobre cualquier tema y obtenga respuestas en vivo al instante:",
-                aiInputPlaceholder: "Pregunta lo que sea...",
-                aiBtn: "Preguntar a IA",
-                tool1Title: "1. Descargador de Streaming HD",
-                tool1Desc: "Inserte la URL del flujo para extraer y descargar medios directamente aquí:",
-                videoInputPlaceholder: "Pegue enlace de YouTube/Social...",
-                fetchBtn: "Obtener",
-                tool2Title: "2. Inspector de URLs y Phishing",
-                tool2Desc: "Analise enlaces objetivo o URLs sospechosas antes de hacer clic:",
-                urlInputPlaceholder: "Ingrese enlace o dominio...",
-                scanBtn: "Escanear",
-                tool3Title: "3. Comprobación de Contraseña",
-                tool3Desc: "Pruebe su contraseña localmente para verificar su fuerza y entropía:",
-                passInputPlaceholder: "Escriba contraseña...",
-                auditBtn: "Auditer",
-                tool3SubDesc: "¿Necesita un token seguro en su lugar?",
-                genBtn: "Generar token",
-                storeTitle: "Tienda Oficial de Ropa SaveGuard",
-                storeDesc: "Obtenga equipo de alta tecnología, sudaderas y mercancía de seguridad exclusiva.",
-                storeBtn: "Visitar tienda 🚀",
-                privacyText: "Política de Privacidad",
-                contactText: "Contáctanos"
-            },
-            de: {
-                topStore: "Shop 🛒",
-                subTitle: "Digitale Sicherheitsintelligenz",
-                artMainTitle: "Umfassender Cybersecurity- & Digitalratgeber",
-                art1Head: "1. Warum digitale Sicherheit wichtig ist",
-                art1Body: "Da sich Cyberbedrohungen weiterentwickeln, ist der Schutz digitaler Werte von entscheidender Bedeutung. Robuste Protokolle schützen Benutzer vor Identitätsdiebstahl.",
-                art2Head: "2. Best Practices für sichere Passwörter",
-                art2Body: "Ein starkes Passwort kombiniert Groß- und Kleinbuchstaben, Zahlen und Symbole. Vermeiden Sie vorhersehbare Muster.",
-                art3Head: "3. Netzwerk Latenz und Ping verstehen",
-                art3Body: "Die Latenz bestimmt die Umlaufzeit von Datenpaketen. Niedrige Ping-Werte gewährleisten reibungsloses Streaming und stabile Verbindungen.",
-                pingTitle: "Netzwerk- & Ping-Monitor",
-                pingDesc: "Testen Sie Ihre Latenz (Ping) und den Netzwerkstatus in Echtzeit:",
-                pingBtn: "Ping-Test starten",
-                aiTitle: "0. SaveGuard KI Assistent",
-                aiDesc: "Stellen Sie Fragen zu jedem Thema und erhalten Sie sofortige Live-Antworten:",
-                aiInputPlaceholder: "Fragen Sie SaveGuard AI...",
-                aiBtn: "KI fragen",
-                tool1Title: "1. HD Video Stream Downloader",
-                tool1Desc: "Stream-URL eingeben, um Medien direkt hier herunterzuladen:",
-                videoInputPlaceholder: "YouTube/Social-Link einfügen...",
-                fetchBtn: "Abrufen",
-                tool2Title: "2. Sichere URL & Phishing Inspector",
-                tool2Desc: "Analysieren Sie Ziel-Links oder verdächtige URLs vor dem Klicken:",
-                urlInputPlaceholder: "Link oder Domain eingeben...",
-                scanBtn: "Scannen",
-                tool3Title: "3. Passwort-Stärke & Leck-Prüfung",
-                tool3Desc: "Testen Sie Ihr Passwort lokal auf Stärke und Entropie:",
-                passInputPlaceholder: "Passwort eingeben...",
-                auditBtn: "Prüfen",
-                tool3SubDesc: "Benötigen Sie stattdessen ein sicheres Token?",
-                genBtn: "Token generieren",
-                storeTitle: "SaveGuard Offizieller Bekleidungsshop",
-                storeDesc: "Holen Sie sich High-Tech-Ausrüstung, Hoodies und exklusive Sicherheitsartikel.",
-                storeBtn: "Shop besuchen 🚀",
-                privacyText: "Datenschutz",
-                contactText: "Kontakt"
             }
         };
 
@@ -705,12 +779,12 @@
             const t = translations[lang] || translations.en;
             const htmlRoot = document.getElementById('htmlRoot');
 
-            if (lang === 'ar') {
-                htmlRoot.setAttribute('dir', 'rtl');
-            } else {
-                htmlRoot.setAttribute('dir', 'ltr');
-            }
+            if (lang === 'ar') { htmlRoot.setAttribute('dir', 'rtl'); } 
+            else { htmlRoot.setAttribute('dir', 'ltr'); }
 
+            document.getElementById('btnIphoneText').innerText = t.btnIphone;
+            document.getElementById('btnSamsungText').innerText = t.btnSamsung;
+            document.getElementById('btnFixText').innerText = t.btnFix;
             document.getElementById('topStoreText').innerText = t.topStore;
             document.getElementById('subTitleText').innerText = t.subTitle;
             document.getElementById('artMainTitle').innerHTML = `<i class="fa-solid fa-book-open"></i> ${t.artMainTitle}`;
@@ -727,10 +801,6 @@
             document.getElementById('aiDesc').innerText = t.aiDesc;
             document.getElementById('aiQueryInput').placeholder = t.aiInputPlaceholder;
             document.getElementById('aiBtnText').innerText = t.aiBtn;
-            document.getElementById('tool1Title').innerHTML = `<i class="fa-solid fa-video"></i> ${t.tool1Title}`;
-            document.getElementById('tool1Desc').innerText = t.tool1Desc;
-            document.getElementById('videoUrl').placeholder = t.videoInputPlaceholder;
-            document.getElementById('fetchBtnText').innerText = t.fetchBtn;
             document.getElementById('tool2Title').innerHTML = `<i class="fa-solid fa-shield-halved"></i> ${t.tool2Title}`;
             document.getElementById('tool2Desc').innerText = t.tool2Desc;
             document.getElementById('checkUrl').placeholder = t.urlInputPlaceholder;
@@ -764,16 +834,11 @@
             setTimeout(() => {
                 const duration = Math.round(performance.now() - start);
                 const pingTime = Math.max(12, duration + Math.floor(Math.random() * 35));
-                
                 let qualityClass = 'result-safe';
                 let statusText = '🟢 Excellent Connection';
 
-                if (pingTime > 150 && pingTime <= 300) {
-                    statusText = '🟡 Moderate Latency';
-                } else if (pingTime > 300) {
-                    qualityClass = 'result-danger';
-                    statusText = '🔴 High Latency / Slow Connection';
-                }
+                if (pingTime > 150 && pingTime <= 300) { statusText = '🟡 Moderate Latency'; } 
+                else if (pingTime > 300) { qualityClass = 'result-danger'; statusText = '🔴 High Latency / Slow Connection'; }
 
                 resBox.className = `result-box ${qualityClass}`;
                 resBox.innerHTML = `📡 <b>Ping:</b> ${pingTime} ms | <b>Status:</b> ${statusText}`;
@@ -791,7 +856,7 @@
             if (!query) {
                 resultBox.style.display = 'block';
                 resultBox.className = 'result-box result-danger';
-                resultBox.innerHTML = currentLang === 'ar' ? '⚠️ يرجى كتابة سؤالك أو طلبك أولاً.' : '⚠️ Please type your question or request first.';
+                resultBox.innerHTML = currentLang === 'ar' ? '⚠️ يرجى كتابة سؤالك أولاً.' : '⚠️ Please type your question first.';
                 return;
             }
 
@@ -800,74 +865,13 @@
             resultBox.innerHTML = '🤖 Processing query...';
 
             setTimeout(() => {
-                let reply = "";
-                const qLower = query.toLowerCase();
-
-                if (currentLang === 'ar') {
-                    if (qLower.includes('سلام') || qLower.includes('مرحبا') || qLower.includes('أهلاً')) {
-                        reply = "وعليكم السلام ورحمة الله وبركاته! أنا مساعد SaveGuard الذكي، كيف يمكنني مساعدتك في مجال الأمن الرقمي أو الاستفسارات التقنية اليوم؟";
-                    } else if (qLower.includes('من أنت') || qLower.includes('اسمك')) {
-                        reply = "أنا نظام الذكاء الاصطناعي المدمج داخل منصة SaveGuard Digital Security Intelligence.";
-                    } else {
-                        reply = `بخصوص استفسارك حول ("<strong>${query}</strong>"): النظام يعمل بكفاءة عالية، وأنصحك دائماً بتأمين حساباتك، استخدام كلمات مرور معقدة، وتفادي النقر على الروابط المجهولة لضمان سلامتك الرقمية.`;
-                    }
-                } else if (currentLang === 'fr') {
-                    reply = `Concernant votre requête ("<strong>${query}</strong>") : Le système SaveGuard est opérationnel. Je vous conseille de maintenir une sécurité rigoureuse et d'utiliser des mots de passe robustes.`;
-                } else if (currentLang === 'nl') {
-                    reply = `Betreffende uw vraag ("<strong>${query}</strong>"): SaveGuard AI is operationeel. Zorg altijd voor sterke authenticatie en vermijd verdachte links.`;
-                } else if (currentLang === 'es') {
-                    reply = `Con respecto a su consulta ("<strong>${query}</strong>"): El sistema SaveGuard está activo. Se recomienda mantener prácticas de seguridad estrictas.`;
-                } else if (currentLang === 'de') {
-                    reply = `Bezüglich Ihrer Anfrage ("<strong>${query}</strong>"): Das SaveGuard System ist aktiv. Achten Sie stets auf starke Passwörter und Datensicherheit.`;
-                } else {
-                    if (qLower.includes('hello') || qLower.includes('hi')) {
-                        reply = "Hello! I am your SaveGuard AI assistant. How can I help you with digital security or general intelligence today?";
-                    } else {
-                        reply = `Regarding your query ("<strong>${query}</strong>"): SaveGuard Intelligence analyzed your prompt. For optimal digital safety, always ensure robust encryption and avoid unknown links.`;
-                    }
+                let reply = `بخصوص استفسارك حول ("<strong>${query}</strong>"): ينصح دائماً بتحديث الهواتف وتفادي الروابط المشبوهة لضمان أمان البيانات.`;
+                if (currentLang !== 'ar') {
+                    reply = `Regarding your query ("<strong>${query}</strong>"): Always keep your operating systems updated and practice safe digital habits.`;
                 }
-
                 resultBox.className = 'result-box result-safe';
                 resultBox.innerHTML = `<b>🤖 SaveGuard AI Pro:</b><br>${reply}`;
             }, 400);
-        }
-
-        function fetchAndDownloadVideo() {
-            const url = document.getElementById('videoUrl').value.trim();
-            const resBox = document.getElementById('videoResultBox');
-            resBox.style.display = 'block';
-            
-            if(!url) { 
-                resBox.className = 'result-box result-danger';
-                resBox.innerHTML = '⚠️ Please paste a valid video URL first.'; 
-                return; 
-            }
-
-            resBox.className = 'result-box result-safe';
-            resBox.innerHTML = `
-                ✅ <b>تم استخراج مصدر الفيديو بنجاح!</b><br><br>
-                <div style="display: flex; flex-direction: column; gap: 6px;">
-                    <a href="https://en.savefrom.net/1-youtube-video-downloader-40/?url=${encodeURIComponent(url)}" target="_blank" class="action-btn" style="text-decoration: none; justify-content: center; width: 100%;">📥 تحميل الفيديو المباشر (HD)</a>
-                </div>
-            `;
-        }
-
-        function setDownloadQuality(q) {
-            const url = document.getElementById('videoUrl').value.trim();
-            const resBox = document.getElementById('videoResultBox');
-            resBox.style.display = 'block';
-
-            if(!url) { 
-                resBox.className = 'result-box result-danger';
-                resBox.innerHTML = '⚠️ Please paste a valid video URL first.'; 
-                return; 
-            }
-
-            resBox.className = 'result-box result-safe';
-            resBox.innerHTML = `
-                ✅ <b>تم اختيار جودة (${q}):</b><br>
-                <a href="https://en.savefrom.net/1-youtube-video-downloader-40/?url=${encodeURIComponent(url)}" target="_blank" class="action-btn" style="text-decoration: none; justify-content: center; width: 100%; margin-top: 8px;">🚀 اضغط هنا لتحميل ملف ${q}</a>
-            `;
         }
 
         function checkUrlSecurity() {
@@ -892,9 +896,7 @@
         function generateSecurePassword() {
             const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*+-!";
             let password = "";
-            for (let i = 0; i < 16; i++) {
-                password += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
+            for (let i = 0; i < 16; i++) { password += chars.charAt(Math.floor(Math.random() * chars.length)); }
             document.getElementById('passwordDisplay').innerText = password;
         }
     </script>
