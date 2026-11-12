@@ -170,6 +170,45 @@
             color: var(--bg-dark);
         }
 
+        /* حاوية عرض المقال الكامل */
+        .article-view {
+            display: none;
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--primary-glow);
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 20px;
+            box-shadow: 0 0 30px rgba(0, 255, 204, 0.2);
+            text-align: left;
+        }
+
+        .article-view h2 {
+            color: var(--primary-glow);
+            font-family: 'Share Tech Mono', monospace;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .article-view p {
+            color: #cbd5e1;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .back-to-blog {
+            display: inline-block;
+            margin-top: 20px;
+            background: var(--secondary-glow);
+            color: var(--bg-dark);
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 12px;
+        }
+
         footer {
             margin-top: 40px;
             text-align: center;
@@ -190,17 +229,18 @@
     </div>
 
     <div class="container">
-        <h1 class="main-title">&gt; SECURITY_BLOG.LOG</h1>
-        <div class="subtitle">Advanced Cybersecurity, Python Automation & Mobile Intelligence</div>
+        <h1 class="main-title" id="pageMainTitle">&gt; SECURITY_BLOG.LOG</h1>
+        <div class="subtitle" id="pageSubTitle">Advanced Cybersecurity, Python Automation & Mobile Intelligence</div>
 
-        <div class="blog-grid" id="blogContainer">
+        <!-- شبكة المقالات -->
+        <div class="blog-grid" id="blogGridContainer">
             <!-- المقال الأول -->
             <div class="blog-card">
                 <div>
                     <h3>1. Advanced Threat Hunting with Python in 2026</h3>
                     <p>Discover how modern security analysts use automated Python scripts to detect anomalies, scan network ports, and neutralize cyber intrusions before data leaks occur.</p>
                 </div>
-                <a href="#" class="read-more-btn" onclick="alert('Full article loaded from secure database.')">Read Article ➔</a>
+                <a href="javascript:void(0)" class="read-more-btn" onclick="showArticle(1)">Read Article ➔</a>
             </div>
 
             <!-- المقال الثاني -->
@@ -209,7 +249,7 @@
                     <h3>2. iPhone & Samsung Hardware Diagnostics Guide</h3>
                     <p>An in-depth breakdown of smartphone IMEI verification, battery health tracking, and identifying blacklisted or stolen mobile devices safely.</p>
                 </div>
-                <a href="#" class="read-more-btn" onclick="alert('Full article loaded from secure database.')">Read Article ➔</a>
+                <a href="javascript:void(0)" class="read-more-btn" onclick="showArticle(2)">Read Article ➔</a>
             </div>
 
             <!-- المقال الثالث -->
@@ -218,7 +258,7 @@
                     <h3>3. Zero-Day Vulnerabilities and Endpoint Defense</h3>
                     <p>Understanding how zero-day exploits target operating systems and why maintaining strict patch management cycles is critical for enterprise networks.</p>
                 </div>
-                <a href="#" class="read-more-btn" onclick="alert('Full article loaded from secure database.')">Read Article ➔</a>
+                <a href="javascript:void(0)" class="read-more-btn" onclick="showArticle(3)">Read Article ➔</a>
             </div>
 
             <!-- المقال الرابع -->
@@ -227,7 +267,7 @@
                     <h3>4. Securing API Endpoints & Preventing Data Breaches</h3>
                     <p>Best practices for concealing sensitive environment variables using serverless Vercel backends to protect API keys from client-side scraping.</p>
                 </div>
-                <a href="#" class="read-more-btn" onclick="alert('Full article loaded from secure database.')">Read Article ➔</a>
+                <a href="javascript:void(0)" class="read-more-btn" onclick="showArticle(4)">Read Article ➔</a>
             </div>
 
             <!-- المقال الخامس -->
@@ -236,7 +276,7 @@
                     <h3>5. Network Latency & Ping Optimization Strategies</h3>
                     <p>How routing protocols, packet loss, and server response times impact real-time applications and how developers can diagnose latency bottlenecks.</p>
                 </div>
-                <a href="#" class="read-more-btn" onclick="alert('Full article loaded from secure database.')">Read Article ➔</a>
+                <a href="javascript:void(0)" class="read-more-btn" onclick="showArticle(5)">Read Article ➔</a>
             </div>
 
             <!-- المقال السادس -->
@@ -245,8 +285,15 @@
                     <h3>6. Phishing Detection and URL Inspection Techniques</h3>
                     <p>Learn how automated scanners inspect redirect chains, un-shorten suspect domains, and flag malicious social engineering URLs instantly.</p>
                 </div>
-                <a href="#" class="read-more-btn" onclick="alert('Full article loaded from secure database.')">Read Article ➔</a>
+                <a href="javascript:void(0)" class="read-more-btn" onclick="showArticle(6)">Read Article ➔</a>
             </div>
+        </div>
+
+        <!-- منطقة عرض المقال المفصل (مخفية افتراضياً وتظهر عند النقر) -->
+        <div id="articleDisplayView" class="article-view">
+            <h2 id="articleTitleText"></h2>
+            <div id="articleBodyContent"></div>
+            <a href="javascript:void(0)" class="back-to-blog" onclick="backToBlogList()">⬅ Back to Articles</a>
         </div>
 
         <footer>&copy; 2026 SAVE_GUARD.SYS // SECURITY INTELLIGENCE DIVISION.</footer>
@@ -279,6 +326,81 @@
             }
         }
         setInterval(drawMatrix, 30);
+
+        // محتوى المقالات المفصلة
+        const articlesData = {
+            1: {
+                title: "Advanced Threat Hunting with Python in 2026",
+                content: `
+                    <p>As cyber threats evolve at an unprecedented pace, safeguarding personal and professional digital assets has become crucial. Python has emerged as the premier programming language for cybersecurity analysts and penetration testers worldwide.</p>
+                    <p>By leveraging automated Python scripts, security teams can rapidly scan network ports, analyze packet streams, and detect anomalies long before a data leak or breach occurs. Libraries such as Scapy, Requests, and Paramiko make network auditing efficient and highly scalable.</p>
+                    <p>Furthermore, integrating automated threat hunting into your daily workflow ensures proactive defense rather than reactive incident response. Always ensure your environment variables are secured behind serverless backends like Vercel to protect critical authentication tokens from exposure.</p>
+                `
+            },
+            2: {
+                title: "iPhone & Samsung Hardware Diagnostics Guide",
+                content: `
+                    <p>Purchasing or maintaining modern smartphones requires a deep understanding of hardware verification. The International Mobile Equipment Identity (IMEI) number serves as the primary unique fingerprint for mobile cellular devices.</p>
+                    <p>Checking your smartphone's IMEI status helps identify whether a device has been flagged on global carrier blacklists as lost or stolen. Additionally, running routine hardware diagnostics—such as touch screen latency checks, battery health analysis, and sensor calibration—ensures your device operates at peak performance.</p>
+                    <p>Regular operating system updates and avoiding unauthorized third-party modifications are vital steps to preserving both hardware integrity and personal data security.</p>
+                `
+            },
+            3: {
+                title: "Zero-Day Vulnerabilities and Endpoint Defense",
+                content: `
+                    <p>Zero-day vulnerabilities represent some of the most dangerous challenges in modern cybersecurity. Because these security flaws are unknown to software vendors, attackers can exploit them before patches or updates become available.</p>
+                    <p>Mitigating zero-day risks requires a robust endpoint defense strategy, including behavior-based threat detection, micro-segmentation of network architectures, and strict adherence to patch management cycles.</p>
+                    <p>Enterprise networks and individual users alike must deploy trusted endpoint protection software and maintain rigorous backup protocols to recover swiftly from unexpected intrusion attempts.</p>
+                `
+            },
+            4: {
+                title: "Securing API Endpoints & Preventing Data Breaches",
+                content: `
+                    <p>In modern web development, exposing sensitive API keys or environment variables on the client side is a primary vector for data breaches. Attackers frequently scrape front-end JavaScript bundles to extract hardcoded credentials.</p>
+                    <p>To prevent this, developers should route sensitive API requests through lightweight serverless backends—such as Vercel serverless functions—where keys remain securely hidden from public inspection.</p>
+                    <p>Implementing rate limiting, CORS policies, and token-based authentication adds multiple layers of robust defense to your web infrastructure.</p>
+                `
+            },
+            5: {
+                title: "Network Latency & Ping Optimization Strategies",
+                content: `
+                    <p>Network latency, commonly measured via Ping response times, plays a critical role in the performance of real-time applications, online gaming, and cloud synchronization.</p>
+                    <p>High latency or packet loss can stem from congested routing paths, Wi-Fi interference, or distant server locations. Network engineers utilize continuous latency monitoring tools to diagnose bottlenecks and optimize traffic flows.</p>
+                    <p>Switching to wired Ethernet connections, upgrading router firmware, and selecting optimized DNS servers can drastically improve connection stability and speed.</p>
+                `
+            },
+            6: {
+                title: "Phishing Detection and URL Inspection Techniques",
+                content: `
+                    <p>Phishing attacks continue to deceive internet users through sophisticated social engineering and disguised malicious hyperlinks. Attackers frequently use URL shorteners to mask destination domains.</p>
+                    <p>Automated URL inspection tools analyze redirect chains, inspect SSL certificate validity, and cross-reference domains against global threat intelligence databases before allowing navigation.</p>
+                    <p>Practicing digital hygiene—such as verifying sender email addresses, inspecting hyperlink destinations, and avoiding unverified attachments—remains your best line of defense against online fraud.</p>
+                `
+            }
+        };
+
+        function showArticle(id) {
+            const art = articlesData[id];
+            if (!art) return;
+
+            document.getElementById('pageMainTitle').style.display = 'none';
+            document.getElementById('pageSubTitle').style.display = 'none';
+            document.getElementById('blogGridContainer').style.display = 'none';
+
+            const displayView = document.getElementById('articleDisplayView');
+            document.getElementById('articleTitleText').innerText = art.title;
+            document.getElementById('articleBodyContent').innerHTML = art.content;
+            displayView.style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function backToBlogList() {
+            document.getElementById('articleDisplayView').style.display = 'none';
+            document.getElementById('pageMainTitle').style.display = 'block';
+            document.getElementById('pageSubTitle').style.display = 'block';
+            document.getElementById('blogGridContainer').style.display = 'grid';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
