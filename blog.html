@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaveGuard Hub | Cyber Security & Tech Blog</title>
+    
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-glow: #00ffcc;
+            --secondary-glow: #38bdf8;
+            --bg-dark: #050b14;
+            --card-bg: rgba(16, 24, 39, 0.85);
+            --border-cyber: rgba(0, 255, 204, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding-bottom: 50px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        #matrixCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.15;
+        }
+
+        .header-top {
+            width: 100%;
+            background: rgba(5, 11, 20, 0.95);
+            border-bottom: 1px solid var(--border-cyber);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            z-index: 100;
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-home {
+            color: var(--primary-glow);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Share Tech Mono', monospace;
+            background: rgba(0, 255, 204, 0.1);
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-cyber);
+            transition: 0.3s;
+        }
+
+        .back-home:hover {
+            background: var(--primary-glow);
+            color: var(--bg-dark);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            z-index: 2;
+        }
+
+        .main-title {
+            font-size: 28px;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            font-weight: 800;
+            color: var(--primary-glow);
+            text-align: center;
+            text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .subtitle {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+
+        .blog-card {
+            background-color: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border-radius: 14px;
+            padding: 20px;
+            border: 1px solid var(--border-cyber);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: 0.3s;
+        }
+
+        .blog-card:hover {
+            border-color: var(--primary-glow);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 255, 204, 0.15);
+        }
+
+        .blog-card h3 {
+            color: var(--secondary-glow);
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .blog-card p {
+            font-size: 13px;
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .read-more-btn {
+            background: rgba(0, 255, 204, 0.1);
+            color: var(--primary-glow);
+            border: 1px solid var(--border-cyber);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .read-more-btn:hover {
+            background: var(--primary-glow);
+            color: var(--bg-dark);
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #64748b;
+            font-size: 11px;
+            font-family: 'Share Tech Mono', monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="matrixCanvas"></canvas>
+
+    <div class="header-top">
+        <a href="index.html" class="back-home">
+            <i class="fa-solid fa-arrow-left"></i> Home Hub
+        </a>
+    </div>
+
+    <div class="container">
+        <h1 class="main-title">&gt; SECURITY_BLOG.LOG</h1>
+        <div class="subtitle">Advanced Cybersecurity, Python Automation & Mobile Intelligence</div>
+
+        <div class="blog-grid" id="blogContainer">
+            <!-- المقال الأول -->
+            <div class="blog-card">
+                <div>
+                    <h3>1. Advanced Threat Hunting with Python in 2026</h3>
+                    <p>Discover how modern security analysts use automated Python scripts to detect anomalies, scan network ports, and neutralize cyber intrusions before data leaks occur.</p>
+                </div>
+                <a href="#" class="read-more-btn" onclick="alert('Full article loaded from secure database.')">Read Article ➔</a>
+            </div>
+
+            <!-- المقال الثاني -->
+            <div class="blog-card">
+                <div>
+                    <h3>2. iPhone & Samsung Hardware Diagnostics Guide</h3>
+                    <p>An in-depth breakdown of smartphone IMEI verification, battery health tracking, and identifying blacklisted or stolen mobile devices safely.</p>
+                </div>
+                <a href="#" class="read-more-btn" onclick="alert('Full article loaded from secure database.')">Read Article ➔</a>
+            </div>
+
+            <!-- المقال الثالث -->
+            <div class="blog-card">
+                <div>
+                    <h3>3. Zero-Day Vulnerabilities and Endpoint Defense</h3>
+                    <p>Understanding how zero-day exploits target operating systems and why maintaining strict patch management cycles is critical for enterprise networks.</p>
+                </div>
+                <a href="#" class="read-more-btn" onclick="alert('Full article loaded from secure database.')">Read Article ➔</a>
+            </div>
+
+            <!-- المقال الرابع -->
+            <div class="blog-card">
+                <div>
+                    <h3>4. Securing API Endpoints & Preventing Data Breaches</h3>
+                    <p>Best practices for concealing sensitive environment variables using serverless Vercel backends to protect API keys from client-side scraping.</p>
+                </div>
+                <a href="#" class="read-more-btn" onclick="alert('Full article loaded from secure database.')">Read Article ➔</a>
+            </div>
+
+            <!-- المقال الخامس -->
+            <div class="blog-card">
+                <div>
+                    <h3>5. Network Latency & Ping Optimization Strategies</h3>
+                    <p>How routing protocols, packet loss, and server response times impact real-time applications and how developers can diagnose latency bottlenecks.</p>
+                </div>
+                <a href="#" class="read-more-btn" onclick="alert('Full article loaded from secure database.')">Read Article ➔</a>
+            </div>
+
+            <!-- المقال السادس -->
+            <div class="blog-card">
+                <div>
+                    <h3>6. Phishing Detection and URL Inspection Techniques</h3>
+                    <p>Learn how automated scanners inspect redirect chains, un-shorten suspect domains, and flag malicious social engineering URLs instantly.</p>
+                </div>
+                <a href="#" class="read-more-btn" onclick="alert('Full article loaded from secure database.')">Read Article ➔</a>
+            </div>
+        </div>
+
+        <footer>&copy; 2026 SAVE_GUARD.SYS // SECURITY INTELLIGENCE DIVISION.</footer>
+    </div>
+
+    <script>
+        // Matrix Background Effect
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+        function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*+-_\u30A0-\u30FF';
+        const fontSize = 14;
+        let columns = canvas.width / fontSize;
+        const rainDrops = [];
+        for (let x = 0; x < columns; x++) { rainDrops[x] = 1; }
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(5, 11, 20, 0.08)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#00ffcc';
+            ctx.font = fontSize + 'px monospace';
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) { rainDrops[i] = 0; }
+                rainDrops[i]++;
+            }
+        }
+        setInterval(drawMatrix, 30);
+    </script>
+</body>
+</html>
