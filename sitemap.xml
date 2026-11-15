@@ -1,9 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- الصفحة الرئيسية -->
   <url>
     <loc>https://saveguard-code.github.io/-CyberGuard/</loc>
-    <lastmod>2026-11-05</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- صفحة المدونة -->
+  <url>
+    <loc>https://saveguard-code.github.io/-CyberGuard/blog.html</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- صفحة اتصل بنا -->
+  <url>
+    <loc>https://saveguard-code.github.io/-CyberGuard/contact.html</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- صفحة سياسة الخصوصية (مهمة جداً لقبول أدسنس) -->
+  <url>
+    <loc>https://saveguard-code.github.io/-CyberGuard/privacy.html</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
 </urlset>
