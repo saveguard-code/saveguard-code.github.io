@@ -204,7 +204,6 @@
             font-family: 'Share Tech Mono', monospace;
         }
 
-        /* نظام العارض التكتيكي التفاعلي (Slider) للصورة والمعلومات */
         .military-blog-card {
             width: 100%;
             background: var(--card-bg);
@@ -586,7 +585,11 @@
         .legal-links a {
             color: var(--primary-glow);
             text-decoration: none;
+            cursor: pointer;
             transition: 0.3s;
+        }
+        .legal-links a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -648,7 +651,7 @@
                 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>
 
-            <!-- قسم المدونة التكتيكية التفاعلية (Slider) للطائرات الحربية ومعلوماتها -->
+            <!-- قسم المدونة التكتيكية التفاعلية (Slider) -->
             <div class="military-blog-card">
                 <div class="military-blog-img-container">
                     <button class="slider-nav-btn slider-prev" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
@@ -811,8 +814,8 @@
                 </div>
                 <footer>&copy; 2026 SAVE_GUARD.SYS // ALL RIGHTS RESERVED.</footer>
                 <div class="legal-links">
-                    <a href="privacy.html" id="privacyLink">Privacy Policy</a> | 
-                    <a href="contact.html" id="contactLink">Contact Us</a>
+                    <a onclick="openModal('modalPrivacy')">Privacy Policy</a> | 
+                    <a onclick="openModal('modalContact')">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -831,7 +834,7 @@
 
     </div>
 
-    <!-- Modals -->
+    <!-- Modals (iPhone, Samsung, Fix) -->
     <div id="modalIphone" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('modalIphone')">&times;</span>
@@ -874,6 +877,41 @@
         </div>
     </div>
 
+    <!-- نافذة Privacy Policy الجديدة -->
+    <div id="modalPrivacy" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modalPrivacy')">&times;</span>
+            <div class="modal-body">
+                <h3><i class="fa-solid fa-shield-halved"></i> Privacy Policy</h3>
+                <p>At SAVE_GUARD.SYS, accessible from our platform, your privacy is a top priority. This Privacy Policy document outlines the types of information collected and recorded by us and how we use it.</p>
+                <h4>1. Information We Collect</h4>
+                <p>We do not collect personal data directly unless you voluntarily provide it through our security tools (such as email checks or AI queries). All tool executions run locally or securely via standard API frameworks.</p>
+                <h4>2. Google AdSense & Cookies</h4>
+                <p>Third-party vendors, including Google, use cookies to serve ads based on a user's previous visits to your website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to your users based on their visit to your sites and/or other sites on the Internet.</p>
+                <h4>3. Contact Information</h4>
+                <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us via email at: <b>saveguard@gmail.com</b></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة Contact Us الجديدة مع إيميل saveguard@gmail.com -->
+    <div id="modalContact" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modalContact')">&times;</span>
+            <div class="modal-body">
+                <h3><i class="fa-solid fa-envelope"></i> Contact Us</h3>
+                <p>Got questions about tactical systems, security tools, or partnership opportunities? Reach out to our command team directly!</p>
+                <h4>• Direct Email Command:</h4>
+                <p style="background: rgba(0,255,204,0.05); padding: 12px; border-radius: 8px; border: 1px dashed var(--primary-glow); text-align: center; font-size: 15px;">
+                    <i class="fa-solid fa-paper-plane" style="color: var(--primary-glow);"></i> 
+                    <a href="mailto:saveguard@gmail.com" style="color: var(--primary-glow); text-decoration: none; font-weight: bold;">saveguard@gmail.com</a>
+                </p>
+                <h4>• Operational Hours:</h4>
+                <p>24/7 Tactical Support & Cyber Command Infrastructure Monitoring.</p>
+            </div>
+        </div>
+    </div>
+
     <script>
         const canvas = document.getElementById('matrixCanvas');
         const ctx = canvas.getContext('2d');
@@ -905,7 +943,6 @@
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
         window.onclick = function(e) { if (e.target.classList.contains('modal')) { e.target.style.display = 'none'; } }
 
-        // بيانات السلايدر التكتيكي (صور ومعلومات الطائرات)
         const sliderData = [
             {
                 img: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1000&q=80",
@@ -945,7 +982,6 @@
                 imgEl.style.opacity = 1;
             }, 200);
 
-            // تحديث النقاط (Dots)
             const dots = document.querySelectorAll('.slider-dots .dot');
             dots.forEach((dot, idx) => {
                 if (idx === currentSlideIndex) {
@@ -1090,7 +1126,7 @@
             let score = 0;
             if(pwd.length >= 8) score++;
             if(/[A-Z]/.test(pwd)) score++;
-            if(/[0-9]/.test(pwd)) score++;
+            if(/[0-9]/.test(pwd++) || /[0-9]/.test(pwd)) score++;
             if(/[^A-Za-z0-9]/.test(pwd)) score++;
 
             if(score <= 2) {
