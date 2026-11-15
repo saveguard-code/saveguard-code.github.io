@@ -146,33 +146,25 @@
         }
 
         .ad-box {
-            background: rgba(9, 15, 29, 0.5);
-            border: 1px dashed var(--border-cyber);
+            background: rgba(9, 15, 29, 0.2);
+            border: none;
             border-radius: 12px;
-            min-height: 600px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: #64748b;
-            font-size: 12px;
-            font-family: 'Share Tech Mono', monospace;
             text-align: center;
-            padding: 10px;
+            padding: 5px;
         }
 
         .ad-banner-horizontal {
             width: 100%;
-            background: rgba(9, 15, 29, 0.5);
-            border: 1px dashed var(--border-cyber);
+            background: rgba(9, 15, 29, 0.2);
+            border: none;
             border-radius: 12px;
-            min-height: 90px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #64748b;
-            font-size: 12px;
-            font-family: 'Share Tech Mono', monospace;
             margin-bottom: 20px;
         }
 
@@ -210,7 +202,7 @@
             font-family: 'Share Tech Mono', monospace;
         }
 
-        /* بانر الطائرات الحربية والقيادة العسكرية (Cyber-Military Banner) */
+        /* بانر الطائرات الحربية والقيادة العسكرية */
         .military-hero-banner {
             width: 100%;
             background: linear-gradient(135deg, rgba(2, 132, 199, 0.2), rgba(0, 255, 204, 0.1)), 
@@ -223,14 +215,6 @@
             box-shadow: 0 0 30px rgba(56, 189, 248, 0.25);
             position: relative;
             overflow: hidden;
-        }
-
-        .military-hero-banner::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 255, 204, 0.03) 2px, rgba(0, 255, 204, 0.03) 4px);
-            pointer-events: none;
         }
 
         .military-hero-banner h2 {
@@ -582,7 +566,7 @@
                 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>
 
-            <!-- بانر عسكري مهيب (طائرات حربية + ألوان أزرق وأخضر نيون) -->
+            <!-- بانر عسكري مهيب -->
             <div class="military-hero-banner">
                 <h2><i class="fa-solid fa-jet-fighter-up"></i> AIRSPACE SUPERIORITY & DEFENSE</h2>
                 <p>مرحباً بك في مقر القيادة المشتركة. منصة موحدة تدمج رصد المناورات الجوية الحربية للمقاتلات مع أحدث أنظمة الاستخبارات السيبرانية والأدوات التكتيكية.</p>
@@ -952,7 +936,7 @@
                 res.className = 'result-box result-danger';
                 res.innerHTML = `[⚠️] Weak Password (Estimated crack time: Minutes). Add numbers & symbols.`;
             } else if(score === 3) {
-                res.className = 'result-box result-warning';
+                res.className, 'result-box result-warning';
                 res.innerHTML = `[⚡] Moderate Password (Estimated crack time: Hours/Days).`;
             } else {
                 res.className = 'result-box result-safe';
