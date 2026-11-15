@@ -10,7 +10,7 @@
     <title id="pageTitle">SaveGuard & Tech | Security Hub & Mobile Solutions</title>
 
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta name="description" content="SaveGuard digital security intelligence, device guides, iPhone & Samsung repair solutions, IMEI check, email breach inspector, and programming hub.">
+    <meta name="description" content="SaveGuard digital security intelligence, device guides, aviation tech gear, IMEI check, email breach inspector, and programming hub.">
 
     <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -317,6 +317,25 @@
         .action-btn:hover { opacity: 0.9; transform: translateY(-1px); }
 
         .store-btn {
+            background: linear-gradient(135deg, #ff9900, #ff5500);
+            color: #ffffff;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 800;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            margin-top: 12px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
+            transition: 0.3s;
+        }
+        .store-btn:hover { opacity: 0.95; transform: scale(1.01); }
+
+        .redbubble-btn {
             background: linear-gradient(135deg, #00b09b, #00ffcc);
             color: #050b14;
             border: none;
@@ -328,7 +347,7 @@
             text-align: center;
             text-decoration: none;
             display: block;
-            margin-top: 12px;
+            margin-top: 10px;
             text-transform: uppercase;
         }
 
@@ -433,7 +452,9 @@
             color: var(--primary-glow);
             font-size: 16px;
             text-decoration: none;
+            transition: 0.3s;
         }
+        .social-icon:hover { background: var(--primary-glow); color: var(--bg-dark); }
 
         footer {
             text-align: center;
@@ -468,7 +489,7 @@
                 <i class="fa-solid fa-blog"></i> <span id="blogTextSpan">Blog 📝</span>
             </a>
             <a href="https://www.redbubble.com/shop/ap/185583485" target="_blank" class="store-link-top" id="topStoreLink">
-                <i class="fa-solid fa-store"></i> <span id="topStoreText">Store 🛒</span>
+                <i class="fa-solid fa-store"></i> <span id="topStoreText">Redbubble Store 🛒</span>
             </a>
         </div>
 
@@ -503,7 +524,7 @@
         <!-- محتوى الموقع الأوسط -->
         <div class="container">
             <h1 class="main-title">&gt; SAVE_GUARD.SYS</h1>
-            <div class="subtitle" id="subTitleText">Cybersecurity & Mobile Specs Hub</div>
+            <div class="subtitle" id="subTitleText">Cybersecurity & Aviation Tech Hub</div>
 
             <!-- إعلان بنر أفقـي علوي -->
             <div class="ad-banner-horizontal">
@@ -529,6 +550,15 @@
                     <i class="fa-solid fa-wrench"></i>
                     <span id="btnFixText">3. Phone Fixes</span>
                 </button>
+            </div>
+
+            <!-- قسم منتج أمازون المقترح (مخصص لعشاق الطائرات والتقنية) -->
+            <div class="card" style="border-color: #ff9900;">
+                <h3 style="color: #ff9900;"><i class="fa-solid fa-jet-fighter"></i> Featured Aviation & Tech Gadget</h3>
+                <p>Check out our top recommended aviation and high-tech gear featured on our Facebook community videos:</p>
+                <a href="Https://link.amazon/B0ayokZkU" target="_blank" class="store-btn">
+                    <i class="fa-brands fa-amazon"></i> View Product on Amazon 🚀
+                </a>
             </div>
 
             <!-- قسم فحص الهواتف و IMEI Check -->
@@ -624,11 +654,11 @@
                 <button class="action-btn" style="width: 100%; margin-top: 6px;" onclick="generateSecurePassword()"><i class="fa-solid fa-rotate"></i> <span id="genBtnText">Generate Token</span></button>
             </div>
 
-            <!-- رابط المتجر الرئيسي -->
+            <!-- رابط متجر Redbubble الرئيسي -->
             <div class="card" style="border-color: #00ffcc; text-align: center;">
                 <h3><i class="fa-solid fa-store"></i> <span id="storeTitle">SaveGuard Official Apparel Store</span></h3>
                 <p id="storeDesc">Get high-tech gear, hoodies, and exclusive security merchandise.</p>
-                <a href="https://www.redbubble.com/shop/ap/185583485" target="_blank" class="store-btn" id="storeBtnText">Visit Store 🚀</a>
+                <a href="https://www.redbubble.com/shop/ap/185583485" target="_blank" class="redbubble-btn" id="storeBtnText">Visit Redbubble Store 🚀</a>
             </div>
 
             <!-- إعلان بنر أفقـي سفلي -->
@@ -643,10 +673,11 @@
 
             <div class="social-footer">
                 <div class="social-icons">
-                    <a href="https://github.com/saveguard-code" target="_blank" class="social-icon"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://linkedin.com" target="_blank" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                    <!-- رابط صفحة الفيسبوك الخاص بك -->
+                    <a href="https://www.facebook.com/share/1CNYRcRMc2/?mibextid=wwXIfr" target="_blank" class="social-icon" title="Facebook Page"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://github.com/saveguard-code" target="_blank" class="social-icon" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="social-icon" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank" class="social-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
                 </div>
                 <footer>&copy; 2026 SAVE_GUARD.SYS // ALL RIGHTS RESERVED.</footer>
                 <div class="legal-links">
@@ -749,17 +780,17 @@
                 btnIphone: "1. iPhone Hub",
                 btnSamsung: "2. Samsung Hub",
                 btnFix: "3. Phone Fixes",
-                topStore: "Store 🛒",
+                topStore: "Redbubble Store 🛒",
                 blogText: "Blog 📝",
-                subTitle: "Cybersecurity & Mobile Specs Hub"
+                subTitle: "Cybersecurity & Aviation Tech Hub"
             },
             ar: {
                 btnIphone: "1. أجهزة آيفون",
                 btnSamsung: "2. أجهزة سامسونج",
                 btnFix: "3. حلول الأعطال",
-                topStore: "المتجر 🛒",
+                topStore: "متجر ريدبوبل 🛒",
                 blogText: "المدونة 📝",
-                subTitle: "مركز الأمن الرقمي ومواصفات الهواتف"
+                subTitle: "مركز الأمن الرقمي وتقنيات الطيران"
             }
         };
 
@@ -821,7 +852,6 @@
 
         function handleAiEnter(e) { if (e.key === 'Enter') askGeminiInSite(); }
 
-        // **الذكاء الاصطناعي المطور (يجيب كإنسان طبيعي وحسب لغة السؤال)**
         function askGeminiInSite() {
             const q = document.getElementById('aiQueryInput').value.trim().toLowerCase();
             const r = document.getElementById('aiResultBox');
@@ -829,16 +859,14 @@
             r.style.display = 'block';
             r.className = 'result-box result-safe';
 
-            // التحقق من التحيات بلغات مختلفة
             if (q.includes('السلام') || q.includes('سلام') || q.includes('مرحبا') || q.includes('أهلاً')) {
-                r.innerHTML = `<b>🤖 SaveGuard AI:</b> وعليكم السلام ورحمة الله تعالى وبركاته! أهلاً بك، كيف يمكنني مساعدتك في مجال الأمن الرقمي أو تقنيات الهواتف اليوم؟`;
+                r.innerHTML = `<b>🤖 SaveGuard AI:</b> وعليكم السلام ورحمة الله تعالى وبركاته! أهلاً بك، كيف يمكنني مساعدتك في أمنك الرقمي أو عالم الطائرات والتقنية اليوم؟`;
             } else if (q.includes('hello') || q.includes('hi') || q.includes('hey')) {
-                r.innerHTML = `<b>🤖 SaveGuard AI:</b> Hello! Welcome to SaveGuard. How can I assist you with cybersecurity or mobile specs today?`;
+                r.innerHTML = `<b>🤖 SaveGuard AI:</b> Hello! Welcome to SaveGuard. How can I assist you with cybersecurity or aviation gear today?`;
             } else if (q.includes('bonjour') || q.includes('salut')) {
-                r.innerHTML = `<b>🤖 SaveGuard AI:</b> Bonjour ! Bienvenue sur SaveGuard. Comment puis-je vous aider aujourd'hui ?`;
+                r.innerHTML = `<b>🤖 SaveGuard AI:</b> Bonjour ! Bienvenue sur SaveGuard. Comment puis-je vous aider ?`;
             } else {
-                // الرد الذكي العام على أي سؤال
-                r.innerHTML = `<b>🤖 SaveGuard AI:</b> بخصوص سؤالك حول <b>"${document.getElementById('aiQueryInput').value.trim()}"</b>: نحن نقدم لك هنا أفضل أدوات الفحص والحماية السيبرانية ومواصفات الهواتف الحديثة. هل تحتاج مساعدة في فحص إيميل، أو كشف رابط مشبوه، أو معرفة تفاصيل جهاز معين؟`;
+                r.innerHTML = `<b>🤖 SaveGuard AI:</b> بخصوص سؤالك حول <b>"${document.getElementById('aiQueryInput').value.trim()}"</b>: نحن نوفر أدوات فحص أمنية ومواصفات تقنية متطورة. هل تحتاج مساعدة في فحص إيميل أو التحقق من جهاز معين؟`;
             }
         }
 
