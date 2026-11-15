@@ -7,10 +7,10 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">SaveGuard & Tech | Security Hub & Mobile Solutions</title>
+    <title id="pageTitle">SAVE_GUARD.SYS // Tactical Air Defense & Cyber Command</title>
 
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta name="description" content="SaveGuard digital security intelligence, device guides, aviation tech gear, IMEI check, email breach inspector, and programming hub.">
+    <meta name="description" content="SaveGuard tactical aviation intelligence, cyber security command, military tech gear, and advanced mobile solutions.">
 
     <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -20,9 +20,10 @@
         :root {
             --primary-glow: #00ffcc;
             --secondary-glow: #38bdf8;
-            --bg-dark: #050b14;
-            --card-bg: rgba(16, 24, 39, 0.85);
-            --border-cyber: rgba(0, 255, 204, 0.3);
+            --tactical-blue: #0284c7;
+            --bg-dark: #020617;
+            --card-bg: rgba(9, 15, 29, 0.9);
+            --border-cyber: rgba(0, 255, 204, 0.4);
         }
 
         * {
@@ -51,12 +52,12 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.15;
+            opacity: 0.12;
         }
 
         .header-top {
             width: 100%;
-            background: rgba(5, 11, 20, 0.95);
+            background: rgba(2, 6, 23, 0.95);
             border-bottom: 1px solid var(--border-cyber);
             display: flex;
             justify-content: space-between;
@@ -100,7 +101,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            background: rgba(16, 24, 39, 0.9);
+            background: rgba(9, 15, 29, 0.9);
             padding: 6px 12px;
             border-radius: 12px;
             border: 1px solid var(--primary-glow);
@@ -122,7 +123,7 @@
         }
 
         .language-select option {
-            background-color: #050b14;
+            background-color: #020617;
             color: #ffffff;
         }
 
@@ -145,7 +146,7 @@
         }
 
         .ad-box {
-            background: rgba(16, 24, 39, 0.5);
+            background: rgba(9, 15, 29, 0.5);
             border: 1px dashed var(--border-cyber);
             border-radius: 12px;
             min-height: 600px;
@@ -162,7 +163,7 @@
 
         .ad-banner-horizontal {
             width: 100%;
-            background: rgba(16, 24, 39, 0.5);
+            background: rgba(9, 15, 29, 0.5);
             border: 1px dashed var(--border-cyber);
             border-radius: 12px;
             min-height: 90px;
@@ -188,23 +189,66 @@
         }
 
         .main-title {
-            font-size: 26px;
+            font-size: 28px;
             margin-top: 10px;
             margin-bottom: 5px;
-            font-weight: 800;
+            font-weight: 900;
             color: var(--primary-glow);
             text-align: center;
-            text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+            text-shadow: 0 0 15px rgba(0, 255, 204, 0.6);
             font-family: 'Share Tech Mono', monospace;
+            letter-spacing: 1px;
         }
 
         .subtitle {
             font-size: 12px;
-            color: #94a3b8;
-            margin-bottom: 25px;
+            color: var(--secondary-glow);
+            margin-bottom: 20px;
             text-align: center;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        /* بانر الطائرات الحربية والقيادة العسكرية (Cyber-Military Banner) */
+        .military-hero-banner {
+            width: 100%;
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.2), rgba(0, 255, 204, 0.1)), 
+                        radial-gradient(circle at center, rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 0.95));
+            border: 2px solid var(--secondary-glow);
+            border-radius: 16px;
+            padding: 22px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .military-hero-banner::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 255, 204, 0.03) 2px, rgba(0, 255, 204, 0.03) 4px);
+            pointer-events: none;
+        }
+
+        .military-hero-banner h2 {
+            font-size: 18px;
+            color: var(--primary-glow);
+            font-family: 'Share Tech Mono', monospace;
+            margin-bottom: 8px;
+            text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .military-hero-banner p {
+            font-size: 13px;
+            color: #cbd5e1;
+            line-height: 1.6;
         }
 
         .nav-points-container {
@@ -216,7 +260,7 @@
 
         .point-btn {
             flex: 1;
-            background: rgba(16, 24, 39, 0.9);
+            background: rgba(9, 15, 29, 0.9);
             border: 1px solid var(--primary-glow);
             padding: 12px 8px;
             border-radius: 12px;
@@ -254,7 +298,7 @@
             padding: 20px;
             width: 100%;
             margin-bottom: 20px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.7);
             border: 1px solid var(--border-cyber);
         }
 
@@ -284,7 +328,7 @@
 
         .custom-input {
             flex: 1;
-            background-color: rgba(5, 11, 20, 0.9);
+            background-color: rgba(2, 6, 23, 0.9);
             border: 1px solid #334155;
             border-radius: 8px;
             padding: 10px 14px;
@@ -297,8 +341,8 @@
         .custom-input:focus { border-color: var(--primary-glow); }
 
         .action-btn {
-            background: linear-gradient(135deg, #00ffcc, #3b82f6);
-            color: #050b14;
+            background: linear-gradient(135deg, #00ffcc, #38bdf8);
+            color: #020617;
             border: none;
             padding: 10px 16px;
             border-radius: 8px;
@@ -316,7 +360,7 @@
 
         .action-btn:hover { opacity: 0.9; transform: translateY(-1px); }
 
-        .store-btn {
+        .amazon-btn {
             background: linear-gradient(135deg, #ff9900, #ff5500);
             color: #ffffff;
             border: none;
@@ -332,12 +376,13 @@
             text-transform: uppercase;
             box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
             transition: 0.3s;
+            font-family: 'Share Tech Mono', monospace;
         }
-        .store-btn:hover { opacity: 0.95; transform: scale(1.01); }
+        .amazon-btn:hover { opacity: 0.95; transform: scale(1.01); }
 
         .redbubble-btn {
             background: linear-gradient(135deg, #00b09b, #00ffcc);
-            color: #050b14;
+            color: #020617;
             border: none;
             padding: 14px 20px;
             border-radius: 8px;
@@ -349,10 +394,11 @@
             display: block;
             margin-top: 10px;
             text-transform: uppercase;
+            font-family: 'Share Tech Mono', monospace;
         }
 
         .result-box {
-            background: rgba(5, 11, 20, 0.9);
+            background: rgba(2, 6, 23, 0.9);
             padding: 14px;
             border-radius: 10px;
             font-size: 13px;
@@ -380,7 +426,7 @@
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(5, 11, 20, 0.9);
+            background: rgba(2, 6, 23, 0.9);
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -524,7 +570,7 @@
         <!-- محتوى الموقع الأوسط -->
         <div class="container">
             <h1 class="main-title">&gt; SAVE_GUARD.SYS</h1>
-            <div class="subtitle" id="subTitleText">Cybersecurity & Aviation Tech Hub</div>
+            <div class="subtitle" id="subTitleText">Tactical Air Defense & Cyber Command</div>
 
             <!-- إعلان بنر أفقـي علوي -->
             <div class="ad-banner-horizontal">
@@ -536,7 +582,13 @@
                 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>
 
-            <!-- النقاط الـ 3 الإضافية -->
+            <!-- بانر عسكري مهيب (طائرات حربية + ألوان أزرق وأخضر نيون) -->
+            <div class="military-hero-banner">
+                <h2><i class="fa-solid fa-jet-fighter-up"></i> AIRSPACE SUPERIORITY & DEFENSE</h2>
+                <p>مرحباً بك في مقر القيادة المشتركة. منصة موحدة تدمج رصد المناورات الجوية الحربية للمقاتلات مع أحدث أنظمة الاستخبارات السيبرانية والأدوات التكتيكية.</p>
+            </div>
+
+            <!-- النقاط الـ 3 الرئيسية -->
             <div class="nav-points-container">
                 <button class="point-btn" onclick="openModal('modalIphone')">
                     <i class="fa-brands fa-apple"></i>
@@ -552,12 +604,12 @@
                 </button>
             </div>
 
-            <!-- قسم منتج أمازون المقترح (مخصص لعشاق الطائرات والتقنية) -->
+            <!-- قسم المعدات العسكرية والتقنية (أمازون أفلييت) -->
             <div class="card" style="border-color: #ff9900;">
-                <h3 style="color: #ff9900;"><i class="fa-solid fa-jet-fighter"></i> Featured Aviation & Tech Gadget</h3>
-                <p>Check out our top recommended aviation and high-tech gear featured on our Facebook community videos:</p>
-                <a href="Https://link.amazon/B0ayokZkU" target="_blank" class="store-btn">
-                    <i class="fa-brands fa-amazon"></i> View Product on Amazon 🚀
+                <h3 style="color: #ff9900;"><i class="fa-solid fa-crosshairs"></i> Tactical Aviation & Tech Gear (Amazon)</h3>
+                <p>اكتشف المعدات التكتيكية الموصى بها، أجهزة تتبع الطيران، والإكسسوارات العسكرية الحصرية:</p>
+                <a href="Https://link.amazon/B0ayokZkU" target="_blank" class="amazon-btn">
+                    <i class="fa-brands fa-amazon"></i> Explore Featured Tactical Gear 🚀
                 </a>
             </div>
 
@@ -620,8 +672,8 @@
 
             <!-- بوت الذكاء الاصطناعي الذكي والمطور -->
             <div class="card" style="border-color: #38bdf8;">
-                <h3 id="aiTitle" style="color: #38bdf8;"><i class="fa-solid fa-brain"></i> SaveGuard AI Pro Assistant</h3>
-                <p id="aiDesc">Ask any question on any topic and get expert live answers instantly:</p>
+                <h3 id="aiTitle" style="color: #38bdf8;"><i class="fa-solid fa-brain"></i> SaveGuard Tactical AI Assistant</h3>
+                <p id="aiDesc">Ask any question on security, aviation or tech and get expert live answers instantly:</p>
                 <div class="input-group">
                     <input type="text" id="aiQueryInput" class="custom-input" placeholder="Ask AI anything..." onkeypress="handleAiEnter(event)">
                     <button class="action-btn" onclick="askGeminiInSite()"><i class="fa-solid fa-bolt"></i> <span id="aiBtnText">Ask AI</span></button>
@@ -656,8 +708,8 @@
 
             <!-- رابط متجر Redbubble الرئيسي -->
             <div class="card" style="border-color: #00ffcc; text-align: center;">
-                <h3><i class="fa-solid fa-store"></i> <span id="storeTitle">SaveGuard Official Apparel Store</span></h3>
-                <p id="storeDesc">Get high-tech gear, hoodies, and exclusive security merchandise.</p>
+                <h3><i class="fa-solid fa-store"></i> <span id="storeTitle">SaveGuard Official Tactical Store</span></h3>
+                <p id="storeDesc">Get high-tech gear, tactical hoodies, and exclusive aviation merchandise.</p>
                 <a href="https://www.redbubble.com/shop/ap/185583485" target="_blank" class="redbubble-btn" id="storeBtnText">Visit Redbubble Store 🚀</a>
             </div>
 
@@ -673,7 +725,6 @@
 
             <div class="social-footer">
                 <div class="social-icons">
-                    <!-- رابط صفحة الفيسبوك الخاص بك -->
                     <a href="https://www.facebook.com/share/1CNYRcRMc2/?mibextid=wwXIfr" target="_blank" class="social-icon" title="Facebook Page"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="https://github.com/saveguard-code" target="_blank" class="social-icon" title="GitHub"><i class="fa-brands fa-github"></i></a>
                     <a href="https://twitter.com" target="_blank" class="social-icon" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
@@ -758,7 +809,7 @@
         for (let x = 0; x < columns; x++) { rainDrops[x] = 1; }
 
         function drawMatrix() {
-            ctx.fillStyle = 'rgba(5, 11, 20, 0.08)';
+            ctx.fillStyle = 'rgba(2, 6, 23, 0.08)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = '#00ffcc';
             ctx.font = fontSize + 'px monospace';
@@ -782,7 +833,7 @@
                 btnFix: "3. Phone Fixes",
                 topStore: "Redbubble Store 🛒",
                 blogText: "Blog 📝",
-                subTitle: "Cybersecurity & Aviation Tech Hub"
+                subTitle: "Tactical Air Defense & Cyber Command"
             },
             ar: {
                 btnIphone: "1. أجهزة آيفون",
@@ -790,7 +841,7 @@
                 btnFix: "3. حلول الأعطال",
                 topStore: "متجر ريدبوبل 🛒",
                 blogText: "المدونة 📝",
-                subTitle: "مركز الأمن الرقمي وتقنيات الطيران"
+                subTitle: "قيادة الدفاع الجوي والأمن السيبراني التكتيكي"
             }
         };
 
@@ -860,13 +911,13 @@
             r.className = 'result-box result-safe';
 
             if (q.includes('السلام') || q.includes('سلام') || q.includes('مرحبا') || q.includes('أهلاً')) {
-                r.innerHTML = `<b>🤖 SaveGuard AI:</b> وعليكم السلام ورحمة الله تعالى وبركاته! أهلاً بك، كيف يمكنني مساعدتك في أمنك الرقمي أو عالم الطائرات والتقنية اليوم؟`;
+                r.innerHTML = `<b>🤖 SaveGuard Tactical AI:</b> وعليكم السلام ورحمة الله تعالى وبركاته! أهلاً بك في غرفة العمليات العسكرية والسيبرانية، كيف يمكنني مساعدتك اليوم؟`;
             } else if (q.includes('hello') || q.includes('hi') || q.includes('hey')) {
-                r.innerHTML = `<b>🤖 SaveGuard AI:</b> Hello! Welcome to SaveGuard. How can I assist you with cybersecurity or aviation gear today?`;
+                r.innerHTML = `<b>🤖 SaveGuard Tactical AI:</b> Hello! Welcome to the Air Defense & Cyber Command. How can I assist you?`;
             } else if (q.includes('bonjour') || q.includes('salut')) {
-                r.innerHTML = `<b>🤖 SaveGuard AI:</b> Bonjour ! Bienvenue sur SaveGuard. Comment puis-je vous aider ?`;
+                r.innerHTML = `<b>🤖 SaveGuard Tactical AI:</b> Bonjour ! Bienvenue au centre de commandement tactique. Comment puis-je vous aider ?`;
             } else {
-                r.innerHTML = `<b>🤖 SaveGuard AI:</b> بخصوص سؤالك حول <b>"${document.getElementById('aiQueryInput').value.trim()}"</b>: نحن نوفر أدوات فحص أمنية ومواصفات تقنية متطورة. هل تحتاج مساعدة في فحص إيميل أو التحقق من جهاز معين؟`;
+                r.innerHTML = `<b>🤖 SaveGuard Tactical AI:</b> بخصوص استفسارك حول <b>"${document.getElementById('aiQueryInput').value.trim()}"</b>: رصدت أنظمتنا التكتيكية طلبك. هل تحتاج استشارة حول حماية الأجهزة، مواصفات الهواتف، أو معدات الطيران الحربي؟`;
             }
         }
 
