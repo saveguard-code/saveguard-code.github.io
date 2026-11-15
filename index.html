@@ -51,7 +51,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0; /* تم جعلها خلف العناصر بدقة لتجنب حجب المحتوى */
+            z-index: 0;
             opacity: 0.08;
             pointer-events: none;
         }
@@ -204,7 +204,7 @@
             font-family: 'Share Tech Mono', monospace;
         }
 
-        /* نظام المدونة التكتيكية المصغرة لطائرات الشبح (Tactical Intel Card) */
+        /* نظام العارض التكتيكي التفاعلي (Slider) للصورة والمعلومات */
         .military-blog-card {
             width: 100%;
             background: var(--card-bg);
@@ -214,11 +214,12 @@
             margin-bottom: 20px;
             box-shadow: 0 10px 30px rgba(56, 189, 248, 0.25);
             backdrop-filter: blur(12px);
+            position: relative;
         }
 
         .military-blog-img-container {
             width: 100%;
-            height: 200px;
+            height: 220px;
             position: relative;
             overflow: hidden;
         }
@@ -228,12 +229,35 @@
             height: 100%;
             object-fit: cover;
             filter: contrast(1.1) brightness(0.9);
-            transition: transform 0.5s ease;
+            transition: opacity 0.4s ease, transform 0.5s ease;
         }
 
-        .military-blog-card:hover .military-blog-img-container img {
-            transform: scale(1.03);
+        .slider-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(2, 6, 23, 0.75);
+            border: 1px solid var(--primary-glow);
+            color: var(--primary-glow);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: 0.3s;
+            backdrop-filter: blur(4px);
         }
+
+        .slider-nav-btn:hover {
+            background: var(--primary-glow);
+            color: var(--bg-dark);
+        }
+
+        .slider-prev { left: 12px; }
+        .slider-next { right: 12px; }
 
         .military-blog-badge {
             position: absolute;
@@ -247,6 +271,7 @@
             padding: 4px 10px;
             border-radius: 6px;
             backdrop-filter: blur(4px);
+            z-index: 5;
         }
 
         .military-blog-content {
@@ -268,6 +293,28 @@
             color: #cbd5e1;
             line-height: 1.6;
             margin-bottom: 12px;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #334155;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .dot.active {
+            background: var(--primary-glow);
+            width: 20px;
+            border-radius: 4px;
         }
 
         .nav-points-container {
@@ -601,16 +648,22 @@
                 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>
 
-            <!-- قسم المدونة التكتيكية لطائرة الشبح (بطاقة تحتوي على صورة ومعلومات) -->
+            <!-- قسم المدونة التكتيكية التفاعلية (Slider) للطائرات الحربية ومعلوماتها -->
             <div class="military-blog-card">
                 <div class="military-blog-img-container">
-                    <!-- صورة طائرة الشبح الحربية الحقيقية -->
-                    <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1000&q=80" alt="Tactical Fighter Jet">
-                    <div class="military-blog-badge"><i class="fa-solid fa-radar"></i> INTEL_ACTIVE</div>
+                    <button class="slider-nav-btn slider-prev" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
+                    <img id="sliderImage" src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1000&q=80" alt="Tactical Jet">
+                    <button class="slider-nav-btn slider-next" onclick="nextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
+                    <div class="military-blog-badge" id="sliderBadge"><i class="fa-solid fa-radar"></i> INTEL_ACTIVE</div>
                 </div>
                 <div class="military-blog-content">
-                    <h2><i class="fa-solid fa-jet-fighter-up"></i> AIRSPACE SUPERIORITY & DEFENSE</h2>
-                    <p>مرحباً بك في مقر القيادة المشتركة. منصة تكتيكية موحدة تدمج رصد المناورات الجوية الحربية للمقاتلات الشبحية مع أحدث أنظمة الاستخبارات السيبرانية والأمن الرقمي.</p>
+                    <h2 id="sliderTitle"><i class="fa-solid fa-jet-fighter-up"></i> AIRSPACE SUPERIORITY & DEFENSE</h2>
+                    <p id="sliderDesc">مرحباً بك في مقر القيادة المشتركة. منصة تكتيكية موحدة تدمج رصد المناورات الجوية الحربية للمقاتلات الشبحية مع أحدث أنظمة الاستخبارات السيبرانية والأمن الرقمي.</p>
+                    <div class="slider-dots" id="sliderDots">
+                        <span class="dot active" onclick="currentSlide(0)"></span>
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                    </div>
                 </div>
             </div>
 
@@ -852,6 +905,72 @@
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
         window.onclick = function(e) { if (e.target.classList.contains('modal')) { e.target.style.display = 'none'; } }
 
+        // بيانات السلايدر التكتيكي (صور ومعلومات الطائرات)
+        const sliderData = [
+            {
+                img: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1000&q=80",
+                badge: "INTEL_ACTIVE // DRON_01",
+                title: "AIRSPACE SUPERIORITY & DEFENSE",
+                desc: "مرحباً بك في مقر القيادة المشتركة. منصة تكتيكية موحدة تدمج رصد المناورات الجوية الحربية للمقاتلات الشبحية مع أحدث أنظمة الاستخبارات السيبرانية والأمن الرقمي."
+            },
+            {
+                img: "https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=1000&q=80",
+                badge: "TACTICAL // JET_F22",
+                title: "STEALTH FIGHTER OPERATIONS",
+                desc: "مراقبة مقاتلات الجيل الخامس المتقدمة وقدرات التخفي الراداري، مع تحليل مسارات الطيران وتأمين قنوات الاتصال التكتيكية ضد التشويوش الإلكتروني."
+            },
+            {
+                img: "https://images.unsplash.com/photo-1519074069444-1ba4ea16d66c?auto=format&fit=crop&w=1000&q=80",
+                badge: "DEFENSE // RADAR_SYS",
+                title: "CYBER DEFENSE & COMMAND CENTER",
+                desc: "منظومة دفاع جوي متكاملة ترصد البيانات الآنية، وتحمي البنية التحتية الرقمية من الهجمات السيبرانية الموجهة ضد شبكات الطيران والاتصالات العسكرية."
+            }
+        ];
+
+        let currentSlideIndex = 0;
+
+        function updateSlider() {
+            const slide = sliderData[currentSlideIndex];
+            const imgEl = document.getElementById('sliderImage');
+            const badgeEl = document.getElementById('sliderBadge');
+            const titleEl = document.getElementById('sliderTitle');
+            const descEl = document.getElementById('sliderDesc');
+
+            imgEl.style.opacity = 0;
+            setTimeout(() => {
+                imgEl.src = slide.img;
+                badgeEl.innerHTML = `<i class="fa-solid fa-radar"></i> ${slide.badge}`;
+                titleEl.innerHTML = `<i class="fa-solid fa-jet-fighter-up"></i> ${slide.title}`;
+                descEl.innerText = slide.desc;
+                imgEl.style.opacity = 1;
+            }, 200);
+
+            // تحديث النقاط (Dots)
+            const dots = document.querySelectorAll('.slider-dots .dot');
+            dots.forEach((dot, idx) => {
+                if (idx === currentSlideIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % sliderData.length;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlideIndex = (currentSlideIndex - 1 + sliderData.length) % sliderData.length;
+            updateSlider();
+        }
+
+        function currentSlide(index) {
+            currentSlideIndex = index;
+            updateSlider();
+        }
+
         const translations = {
             en: {
                 btnIphone: "1. iPhone Hub",
@@ -971,7 +1090,7 @@
             let score = 0;
             if(pwd.length >= 8) score++;
             if(/[A-Z]/.test(pwd)) score++;
-            if(/[0-9]/.test(pwd++) score++;
+            if(/[0-9]/.test(pwd)) score++;
             if(/[^A-Za-z0-9]/.test(pwd)) score++;
 
             if(score <= 2) {
