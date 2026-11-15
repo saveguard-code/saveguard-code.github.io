@@ -588,9 +588,7 @@
             cursor: pointer;
             transition: 0.3s;
         }
-        .legal-links a:hover {
-            text-decoration: underline;
-        }
+        .legal-links a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -670,7 +668,7 @@
                 </div>
             </div>
 
-            <!-- النقاط الـ 3 الرئيسية -->
+            <!-- الخانات الـ 3 المطورة (iPhone Hub, Samsung Hub, Phone Fixes) -->
             <div class="nav-points-container">
                 <button class="point-btn" onclick="openModal('modalIphone')">
                     <i class="fa-brands fa-apple"></i>
@@ -834,50 +832,91 @@
 
     </div>
 
-    <!-- Modals (iPhone, Samsung, Fix) -->
+    <!-- نافذة iPhone Hub المطورة -->
     <div id="modalIphone" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('modalIphone')">&times;</span>
-            <div class="modal-body" id="mIphoneContent">
-                <h3><i class="fa-brands fa-apple"></i> Apple iPhone Specs & Latest Models</h3>
-                <h4>• iPhone 17 Pro & 17 Pro Max</h4>
+            <div class="modal-body">
+                <h3><i class="fa-brands fa-apple"></i> Apple iPhone Ultimate Intelligence Hub</h3>
+                <p>دليلك الشامل لأحدث إصدارات آبل، مقارنة المواصفات، ونصائح الشراء الاحترافية لعام 2026.</p>
+                
+                <h4>• iPhone 17 Pro & 17 Pro Max Specs</h4>
                 <ul>
-                    <li><b>Processor:</b> A19 Pro (3nm) with Vapor Chamber Cooling.</li>
-                    <li><b>Display:</b> 6.3" and 6.9" Super Retina XDR OLED (120Hz ProMotion).</li>
-                    <li><b>Camera System:</b> 48MP Triple Camera, 8x Optical Zoom.</li>
+                    <li><b>Processor:</b> A19 Pro (3nm) with advanced Vapor Chamber Cooling for heavy gaming.</li>
+                    <li><b>Display:</b> 6.3" and 6.9" Super Retina XDR OLED (120Hz ProMotion, Always-On).</li>
+                    <li><b>Camera System:</b> 48MP Triple Fusion Camera with 8x Optical Telephoto Zoom.</li>
+                    <li><b>Battery & Charging:</b> Fast USB-C charging (Up to 50% in 20 mins) & MagSafe support.</li>
                 </ul>
+
+                <h4>• Quick iPhone Accessories Recommendation (Amazon Affiliate)</h4>
+                <p>Protect your investment with top-rated military-grade cases and fast chargers:</p>
+                <a href="Https://link.amazon/B0ayokZkU" target="_blank" class="amazon-btn" style="margin-top: 8px; padding: 10px;">
+                    <i class="fa-brands fa-amazon"></i> Shop Certified iPhone Gear 🛒
+                </a>
             </div>
         </div>
     </div>
 
+    <!-- نافذة Samsung Hub المطورة -->
     <div id="modalSamsung" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('modalSamsung')">&times;</span>
-            <div class="modal-body" id="mSamsungContent">
-                <h3><i class="fa-solid fa-mobile-screen-button"></i> Samsung Galaxy Latest Models</h3>
-                <h4>• Samsung Galaxy S26 Ultra</h4>
+            <div class="modal-body">
+                <h3><i class="fa-solid fa-mobile-screen-button"></i> Samsung Galaxy Command Center</h3>
+                <p>أحدث إصدارات سامسونج الرائدة، تقنيات الذكاء الاصطناعي Galaxy AI، وأقوى المواصفات التقنية.</p>
+
+                <h4>• Samsung Galaxy S26 Ultra Specs</h4>
                 <ul>
-                    <li><b>Processor:</b> Snapdragon 8 Elite Gen 5 for Galaxy.</li>
-                    <li><b>Display:</b> 6.9" Dynamic AMOLED 2X, 120Hz Adaptive Refresh.</li>
+                    <li><b>Processor:</b> Snapdragon 8 Elite Gen 5 custom-tuned for Galaxy.</li>
+                    <li><b>Display:</b> 6.9" Dynamic AMOLED 2X with anti-reflective Gorilla Armor glass.</li>
+                    <li><b>Camera:</b> 200MP Main Sensor, 50MP Periscope Telephoto (10x Optical).</li>
+                    <li><b>Productivity:</b> Built-in S-Pen with ultra-low latency & AI note assist.</li>
                 </ul>
+
+                <h4>• Recommended Samsung Galaxy Accessories</h4>
+                <p>Explore high-speed chargers and protective armor cases on Amazon:</p>
+                <a href="Https://link.amazon/B0ayokZkU" target="_blank" class="amazon-btn" style="margin-top: 8px; padding: 10px;">
+                    <i class="fa-brands fa-amazon"></i> Shop Samsung Tactical Gear 🛒
+                </a>
             </div>
         </div>
     </div>
 
+    <!-- نافذة Phone Fixes المطورة مع أداة تشخيص الأعطال التفاعلية -->
     <div id="modalFix" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('modalFix')">&times;</span>
-            <div class="modal-body" id="mFixContent">
-                <h3><i class="fa-solid fa-wrench"></i> Common iPhone & Samsung Troubleshooting Solutions</h3>
-                <h4>1. Battery Draining Quickly</h4>
+            <div class="modal-body">
+                <h3><i class="fa-solid fa-wrench"></i> Mobile Troubleshooting & Repair Hub</h3>
+                <p>دليل الإصلاح السريع لحل المشاكل الشائعة في الهواتف الذكية (آيفون وأندرويد).</p>
+
+                <h4>1. Battery Draining Quickly / Overheating</h4>
                 <ul>
-                    <li><b>Fix:</b> Go to Settings > Battery > Enable Power Saving Mode.</li>
+                    <li><b>Cause:</b> Background apps refresh, high screen brightness, or aging battery cells.</li>
+                    <li><b>Fix:</b> Enable Power Saving Mode, restrict background data for unused apps, or check battery health stats.</li>
                 </ul>
+
+                <h4>2. Slow Network / Wi-Fi Dropouts</h4>
+                <ul>
+                    <li><b>Fix:</b> Toggle Airplane mode on/off for 10 seconds, reset network settings, or restart your router.</li>
+                </ul>
+
+                <div style="margin-top: 15px; border-top: 1px dashed #334155; padding-top: 12px;">
+                    <h4 style="color: var(--primary-glow);"><i class="fa-solid fa-stethoscope"></i> Interactive Quick Fix Assistant:</h4>
+                    <p style="font-size: 12px; color: #94a3b8;">Select your current issue to get instant automated troubleshooting steps:</p>
+                    
+                    <div style="display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap;">
+                        <button class="action-btn" style="flex:1; min-width: 120px; font-size: 11px;" onclick="runFixGuide('Screen Freeze')">Screen Freeze</button>
+                        <button class="action-btn" style="flex:1; min-width: 120px; font-size: 11px;" onclick="runFixGuide('Charging Issue')">Charging Issue</button>
+                        <button class="action-btn" style="flex:1; min-width: 120px; font-size: 11px;" onclick="runFixGuide('No Audio')">No Audio / Mic</button>
+                    </div>
+                    <div id="fixResultBox" class="result-box" style="display: none; margin-top: 10px; text-align: center;"></div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- نافذة Privacy Policy الجديدة -->
+    <!-- نافذة Privacy Policy -->
     <div id="modalPrivacy" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('modalPrivacy')">&times;</span>
@@ -894,7 +933,7 @@
         </div>
     </div>
 
-    <!-- نافذة Contact Us الجديدة مع إيميل saveguard@gmail.com -->
+    <!-- نافذة Contact Us -->
     <div id="modalContact" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('modalContact')">&times;</span>
@@ -942,6 +981,20 @@
         function openModal(id) { document.getElementById(id).style.display = 'flex'; }
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
         window.onclick = function(e) { if (e.target.classList.contains('modal')) { e.target.style.display = 'none'; } }
+
+        // أداة التشخيص التفاعلية داخل Phone Fixes
+        function runFixGuide(issue) {
+            const box = document.getElementById('fixResultBox');
+            box.style.display = 'block';
+            box.className = 'result-box result-safe';
+            if(issue === 'Screen Freeze') {
+                box.innerHTML = '💡 <b>Fix:</b> Perform a forced restart (Press Volume Up, Volume Down, then hold Power button until Apple/Samsung logo appears).';
+            } else if(issue === 'Charging Issue') {
+                box.innerHTML = '💡 <b>Fix:</b> Carefully clean the USB-C/Lightning port with a wooden toothpick to remove dust lint, then check the cable.';
+            } else if(issue === 'No Audio') {
+                box.innerHTML = '💡 <b>Fix:</b> Check if Bluetooth is accidentally connected to an external speaker, and clean speaker grille gently with a soft brush.';
+            }
+        }
 
         const sliderData = [
             {
@@ -1126,7 +1179,7 @@
             let score = 0;
             if(pwd.length >= 8) score++;
             if(/[A-Z]/.test(pwd)) score++;
-            if(/[0-9]/.test(pwd++) || /[0-9]/.test(pwd)) score++;
+            if(/[0-9]/.test(pwd)) score++;
             if(/[^A-Za-z0-9]/.test(pwd)) score++;
 
             if(score <= 2) {
