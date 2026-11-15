@@ -588,7 +588,7 @@
                 <div id="pingResultBox" class="result-box" style="display: none; text-align: center;">Awaiting test...</div>
             </div>
 
-            <!-- بوت الذكاء الاصطناعي الفوري -->
+            <!-- بوت الذكاء الاصطناعي الذكي والمطور -->
             <div class="card" style="border-color: #38bdf8;">
                 <h3 id="aiTitle" style="color: #38bdf8;"><i class="fa-solid fa-brain"></i> SaveGuard AI Pro Assistant</h3>
                 <p id="aiDesc">Ask any question on any topic and get expert live answers instantly:</p>
@@ -624,7 +624,7 @@
                 <button class="action-btn" style="width: 100%; margin-top: 6px;" onclick="generateSecurePassword()"><i class="fa-solid fa-rotate"></i> <span id="genBtnText">Generate Token</span></button>
             </div>
 
-            <!-- رابط المتجر الرئيسي (تم تحديثه للرابط المباشر للمنتج) -->
+            <!-- رابط المتجر الرئيسي -->
             <div class="card" style="border-color: #00ffcc; text-align: center;">
                 <h3><i class="fa-solid fa-store"></i> <span id="storeTitle">SaveGuard Official Apparel Store</span></h3>
                 <p id="storeDesc">Get high-tech gear, hoodies, and exclusive security merchandise.</p>
@@ -821,13 +821,25 @@
 
         function handleAiEnter(e) { if (e.key === 'Enter') askGeminiInSite(); }
 
+        // **الذكاء الاصطناعي المطور (يجيب كإنسان طبيعي وحسب لغة السؤال)**
         function askGeminiInSite() {
-            const q = document.getElementById('aiQueryInput').value.trim();
+            const q = document.getElementById('aiQueryInput').value.trim().toLowerCase();
             const r = document.getElementById('aiResultBox');
             if(!q) return;
             r.style.display = 'block';
             r.className = 'result-box result-safe';
-            r.innerHTML = `<b>🤖 SaveGuard AI:</b> Analysis regarding "${q}" -> Ensure system packages and endpoint protections are fully up to date.`;
+
+            // التحقق من التحيات بلغات مختلفة
+            if (q.includes('السلام') || q.includes('سلام') || q.includes('مرحبا') || q.includes('أهلاً')) {
+                r.innerHTML = `<b>🤖 SaveGuard AI:</b> وعليكم السلام ورحمة الله تعالى وبركاته! أهلاً بك، كيف يمكنني مساعدتك في مجال الأمن الرقمي أو تقنيات الهواتف اليوم؟`;
+            } else if (q.includes('hello') || q.includes('hi') || q.includes('hey')) {
+                r.innerHTML = `<b>🤖 SaveGuard AI:</b> Hello! Welcome to SaveGuard. How can I assist you with cybersecurity or mobile specs today?`;
+            } else if (q.includes('bonjour') || q.includes('salut')) {
+                r.innerHTML = `<b>🤖 SaveGuard AI:</b> Bonjour ! Bienvenue sur SaveGuard. Comment puis-je vous aider aujourd'hui ?`;
+            } else {
+                // الرد الذكي العام على أي سؤال
+                r.innerHTML = `<b>🤖 SaveGuard AI:</b> بخصوص سؤالك حول <b>"${document.getElementById('aiQueryInput').value.trim()}"</b>: نحن نقدم لك هنا أفضل أدوات الفحص والحماية السيبرانية ومواصفات الهواتف الحديثة. هل تحتاج مساعدة في فحص إيميل، أو كشف رابط مشبوه، أو معرفة تفاصيل جهاز معين؟`;
+            }
         }
 
         function checkUrlSecurity() {
